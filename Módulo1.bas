@@ -364,7 +364,6 @@ Public Sub CONEXION_GEN()
   
   PUB_DSN = UCase(wdsn)
   wAcceso = "anteromariano"
-  'wAcceso = ""
   
   ws_color = 3
   Srutas = ""
@@ -571,7 +570,7 @@ Public Sub CONEXION_GEN()
   Set far_llave = PSFAR_LLAVE.OpenResultset(rdOpenKeyset, rdConcurValues)
   Pro_Aumento 23
   
-  pub_cadena = "SELECT FAR_CODCLIE, FAR_NUMOPER , FAR_FECHA, FAR_FBG,FAR_NUMSER, FAR_NUMFAC, FAR_NUMFAC_C, FAR_NUMSER_C , FAR_NUMFAC, FAR_NUMSER, FAR_FBG, FAR_BRUTO, FAR_IMPTO, FAR_SUBTOTAL, FAR_FECHA_COMPRA , FAR_NUMDOC, FAR_MONEDA, FAR_CODCIA, FAR_TIPMOV , far_tipdoc, FAR_DIAS FROM facart WHERE FAR_TIPMOV = ? AND FAR_CODCIA = ? AND FAR_NUMSER_C = ? AND (FAR_FBG=? OR FAR_FBG=?) AND FAR_NUMFAC_C = ? AND far_estado <> 'E'  ORDER BY FAR_TIPMOV, FAR_CODCIA, FAR_NUMSER, FAR_FBG, FAR_NUMFAC, FAR_NUMSEC"
+  pub_cadena = "SELECT FAR_CODCLIE, FAR_NUMOPER , FAR_FBG, FAR_NUMFAC_C, FAR_NUMSER_C , FAR_NUMFAC, FAR_NUMSER, FAR_BRUTO, FAR_IMPTO, FAR_SUBTOTAL, FAR_FECHA_COMPRA , FAR_NUMDOC, FAR_MONEDA, FAR_CODCIA, FAR_TIPMOV , far_tipdoc, FAR_DIAS FROM facart WHERE FAR_TIPMOV = ? AND FAR_CODCIA = ? AND FAR_NUMSER_C = ? AND (FAR_FBG=? OR FAR_FBG=?) AND FAR_NUMFAC_C = ? AND far_estado <> 'E'  ORDER BY FAR_TIPMOV, FAR_CODCIA, FAR_NUMSER, FAR_FBG, FAR_NUMFAC, FAR_NUMSEC"
   Set PSFAR_MENOR4 = CN.CreateQuery("", pub_cadena)
   PSFAR_MENOR4(0) = 0
   PSFAR_MENOR4(1) = ""
@@ -1389,11 +1388,11 @@ GoTo SALIR
 SALIR:
 End Sub
 
-Public Function alta_vista_nombre(WLV1 As Object, TEXTO As String, WCP As String, Optional wbus) As Integer
+Public Function alta_vista_nombre(WLV1 As Object, Texto As String, WCP As String, Optional wbus) As Integer
 Dim itmX As ListItem
 Dim NUMCAMPO As Integer
 Dim OJO As String * 1
-Static P As Boolean
+Static p As Boolean
 Dim VAR As String
 Dim sw_cuenta As Integer
 
@@ -1414,7 +1413,7 @@ WLV1.Width = 11000
 WLV1.Left = 300
 
 NUMCAMPO = 0
-VAR = "*" & TEXTO & "*"
+VAR = "*" & Texto & "*"
 sw_cuenta = 0
 Do Until x.EOF Or sw_cuenta = 1000
 OJO = "S"
@@ -1525,15 +1524,15 @@ Public Sub LEER_ZON_LLAVE()
 '  zon_llave.Requery
 End Sub
 
-Public Function ENTERO(TEXTO As String) As Boolean
+Public Function ENTERO(Texto As String) As Boolean
 Dim LARGO As Integer
 Dim i, x As Integer
 Dim DIG As Integer
-LARGO = Len(TEXTO)
+LARGO = Len(Texto)
 i = LARGO
 ENTERO = True
 Do Until i = 0
-   DIG = Asc(Mid(TEXTO, i, 1))
+   DIG = Asc(Mid(Texto, i, 1))
    If (DIG > 47 And DIG < 58) Then
        x = 0
    Else
