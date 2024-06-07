@@ -18,6 +18,7 @@ Begin VB.Form frmGuiaRemisionMain
       Italic          =   0   'False
       Strikethrough   =   0   'False
    EndProperty
+   KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
@@ -425,6 +426,7 @@ Begin VB.Form frmGuiaRemisionMain
       Left            =   3480
       TabIndex        =   30
       Top             =   9000
+      Visible         =   0   'False
       Width           =   555
    End
 End
@@ -625,6 +627,10 @@ oCmdEjec.CommandText = "[dbo].[USP_TRANSPORTISTA_DATOS]"
     End If
 End Sub
 
+Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
+If KeyCode = vbKeyEscape Then Unload Me
+End Sub
+
 Private Sub Form_Load()
 Me.MasFechaTraslado.Text = LK_FECHA_DIA
     ConfigurarLv
@@ -667,15 +673,15 @@ Me.MasFechaTraslado.Text = LK_FECHA_DIA
             Set itemx = Me.lvListado.ListItems.Add(, , orsDatos!Cantidad)
             itemx.Tag = orsDatos!idproducto
             itemx.SubItems(1) = orsDatos!PRODUCTO
-            itemx.SubItems(2) = orsDatos!peso
-            itemx.SubItems(3) = orsDatos!pesototal
+            itemx.SubItems(2) = orsDatos!PESO
+            itemx.SubItems(3) = orsDatos!PESOTOTAL
         Else
             itemx.Text = Val(itemx.Text) + orsDatos!Cantidad
-            itemx.SubItems(3) = Val(itemx.SubItems(3)) + orsDatos!pesototal
+            itemx.SubItems(3) = Val(itemx.SubItems(3)) + orsDatos!PESOTOTAL
         End If
 
         vBultos = vBultos + orsDatos!Cantidad
-        vPeso = vPeso + orsDatos!pesototal
+        vPeso = vPeso + orsDatos!PESOTOTAL
         orsDatos.MoveNext
         vEncontrado = False
     Loop

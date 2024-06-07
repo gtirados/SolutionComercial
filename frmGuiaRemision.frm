@@ -1,6 +1,6 @@
 VERSION 5.00
-Object = "{C932BA88-4374-101B-A56C-00AA003668DC}#1.1#0"; "MSMASK32.OCX"
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "Mscomctl.ocx"
+Object = "{C932BA88-4374-101B-A56C-00AA003668DC}#1.1#0"; "msmask32.ocx"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.OCX"
 Begin VB.Form frmGuiaRemision 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "Guia de Remisión"
@@ -23,6 +23,14 @@ Begin VB.Form frmGuiaRemision
    MinButton       =   0   'False
    ScaleHeight     =   7305
    ScaleWidth      =   11775
+   Begin VB.CommandButton cmdGuiaConsulta 
+      Caption         =   "Consultar"
+      Height          =   600
+      Left            =   240
+      TabIndex        =   14
+      Top             =   6600
+      Width           =   1215
+   End
    Begin VB.CommandButton cmdProcesar 
       Caption         =   "Procesar"
       Height          =   600
@@ -161,6 +169,7 @@ Begin VB.Form frmGuiaRemision
       Left            =   10320
       TabIndex        =   12
       Top             =   840
+      Visible         =   0   'False
       Width           =   555
    End
    Begin VB.Label Label3 
@@ -170,7 +179,7 @@ Begin VB.Form frmGuiaRemision
       Height          =   195
       Left            =   5880
       TabIndex        =   11
-      Top             =   720
+      Top             =   675
       Width           =   555
    End
    Begin VB.Label Label2 
@@ -180,7 +189,7 @@ Begin VB.Form frmGuiaRemision
       Height          =   195
       Left            =   120
       TabIndex        =   10
-      Top             =   720
+      Top             =   675
       Width           =   615
    End
    Begin VB.Label Label1 
@@ -202,7 +211,7 @@ Attribute VB_Exposed = False
 Private vBuscar As Boolean 'variable para la busqueda de clientes
 Dim loc_key  As Integer
 
-Private Sub cmdconsultar_Click()
+Private Sub cmdConsultar_Click()
 MostrarDocumentos
 End Sub
 
@@ -241,32 +250,51 @@ sSearch:
 
 End Sub
 
+Private Sub cmdGuiaConsulta_Click()
+frmGuiaRemisionSearch.Show vbModal
+End Sub
+
 Private Sub cmdProcesar_Click()
-Dim sDocumentos As String
-Dim itemx As Object
 
-For Each itemx In Me.lvCab.ListItems
-    If itemx.Checked Then
-        If Len(Trim(sDocumentos)) = 0 Then
-        sDocumentos = itemx.SubItems(2) + "-" + itemx.Text + "-" + itemx.SubItems(1)
-        Else
-        sDocumentos = sDocumentos + "," + itemx.SubItems(2) + "-" + itemx.Text + "-" + itemx.SubItems(1)
+    Dim sDocumentos As String
+
+    Dim itemx       As Object
+
+    For Each itemx In Me.lvCab.ListItems
+
+        If itemx.Checked Then
+            If Len(Trim(sDocumentos)) = 0 Then
+                sDocumentos = itemx.SubItems(2) + "-" + itemx.Text + "-" + itemx.SubItems(1)
+            Else
+                sDocumentos = sDocumentos + "," + itemx.SubItems(2) + "-" + itemx.Text + "-" + itemx.SubItems(1)
+
+            End If
+
         End If
-    End If
-Next
-frmGuiaRemisionMain.strDocumentos = sDocumentos
-frmGuiaRemisionMain.lblCliente.Caption = txtSearchCliente.Text
-frmGuiaRemisionMain.lblIDcliente.Caption = Me.lblIDcliente.Caption
 
-frmGuiaRemisionMain.Show vbModal
+    Next
+
+    If Len(Trim(sDocumentos)) = 0 Then
+        MsgBox "Debe elegir algun documento de venta.", vbCritical, Pub_Titulo
+        Exit Sub
+
+    End If
+
+    frmGuiaRemisionMain.strDocumentos = sDocumentos
+    frmGuiaRemisionMain.lblCliente.Caption = txtSearchCliente.Text
+    frmGuiaRemisionMain.lblIDcliente.Caption = Me.lblIDcliente.Caption
+
+    frmGuiaRemisionMain.Show vbModal
+
 End Sub
 
 Private Sub Form_Load()
- vBuscar = True
- CentrarFormulario MDIForm1, Me
-ConfiguraLV
-Me.MasFechaFin.Text = LK_FECHA_DIA
-Me.MasFechainicio.Text = DateAdd("m", -1, LK_FECHA_DIA)
+    vBuscar = True
+    CentrarFormulario MDIForm1, Me
+    ConfiguraLV
+    Me.MasFechaFin.Text = LK_FECHA_DIA
+    Me.MasFechainicio.Text = DateAdd("m", -1, LK_FECHA_DIA)
+
 End Sub
 
 Private Sub ConfiguraLV()
@@ -309,14 +337,14 @@ End Sub
 
 
 
-Private Sub lvCab_ItemClick(ByVal item As MSComctlLib.ListItem)
+Private Sub lvCab_ItemClick(ByVal Item As MSComctlLib.ListItem)
 Me.lvDet.ListItems.Clear
 LimpiaParametros oCmdEjec
 oCmdEjec.CommandText = "[dbo].[USP_VENTAS_FILL_DET]"
 oCmdEjec.Parameters.Append oCmdEjec.CreateParameter("@IDCLIENTE", adBigInt, adParamInput, , Me.lblIDcliente.Caption)
-oCmdEjec.Parameters.Append oCmdEjec.CreateParameter("@SERIE", adChar, adParamInput, 3, item.Text)
-oCmdEjec.Parameters.Append oCmdEjec.CreateParameter("@NUMERO", adBigInt, adParamInput, , item.SubItems(1))
-oCmdEjec.Parameters.Append oCmdEjec.CreateParameter("@FBG", adChar, adParamInput, 1, item.SubItems(2))
+oCmdEjec.Parameters.Append oCmdEjec.CreateParameter("@SERIE", adChar, adParamInput, 3, Item.Text)
+oCmdEjec.Parameters.Append oCmdEjec.CreateParameter("@NUMERO", adBigInt, adParamInput, , Item.SubItems(1))
+oCmdEjec.Parameters.Append oCmdEjec.CreateParameter("@FBG", adChar, adParamInput, 1, Item.SubItems(2))
 oCmdEjec.Parameters.Append oCmdEjec.CreateParameter("@CODCIA", adChar, adParamInput, 2, LK_CODCIA)
 
 Dim oRSdet As ADODB.Recordset
@@ -326,8 +354,8 @@ Dim itemx As Object
 Do While Not oRSdet.EOF
     Set itemx = Me.lvDet.ListItems.Add(, , oRSdet!Cantidad)
     itemx.SubItems(1) = oRSdet!PRODUCTO
-    itemx.SubItems(2) = oRSdet!peso
-    itemx.SubItems(3) = oRSdet!pesototal
+    itemx.SubItems(2) = oRSdet!PESO
+    itemx.SubItems(3) = oRSdet!PESOTOTAL
     oRSdet.MoveNext
 Loop
 
@@ -398,8 +426,8 @@ Private Sub txtSearchCliente_KeyDown(KeyCode As Integer, Shift As Integer)
 
     GoTo fin
 POSICION:
-    Me.lvSearch.ListItems.item(loc_key).Selected = True
-    Me.lvSearch.ListItems.item(loc_key).EnsureVisible
+    Me.lvSearch.ListItems.Item(loc_key).Selected = True
+    Me.lvSearch.ListItems.Item(loc_key).EnsureVisible
     
     'txtRS.Text = Trim(ListView1.ListItems.Item(loc_key).Text) & " "
     'txtRS.SelStart = Len(txtRS.Text)
@@ -420,13 +448,13 @@ Private Sub txtSearchCliente_KeyPress(KeyAscii As Integer)
             oCmdEjec.CommandText = "[dbo].[USP_CLIENTES_FILL]"
             Set orspago = oCmdEjec.Execute(, Me.txtSearchCliente.Text)
 
-            Dim item As Object
+            Dim Item As Object
             
             If Not orspago.EOF Then
 
                 Do While Not orspago.EOF
-                    Set item = Me.lvSearch.ListItems.Add(, , orspago!Codigo)
-                    item.SubItems(1) = Trim(orspago!cliente)
+                    Set Item = Me.lvSearch.ListItems.Add(, , orspago!Codigo)
+                    Item.SubItems(1) = Trim(orspago!CLIENTE)
                     orspago.MoveNext
                 Loop
 
