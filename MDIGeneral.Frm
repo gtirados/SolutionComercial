@@ -396,7 +396,7 @@ Begin VB.MDIForm MDIForm1
          Shortcut        =   ^B
       End
       Begin VB.Menu SubmenuTit1 
-         Caption         =   "-"
+         Caption         =   "Datos de Transportistas"
          Index           =   4
       End
       Begin VB.Menu SubmenuTit1 
@@ -2022,6 +2022,11 @@ Select Case index
         Load frmBancos
         Unload FORMGEN
         frmBancos.Show
+        Screen.MousePointer = 0
+    Case 4
+        Screen.MousePointer = 11
+        Load frmTransportista
+        frmTransportista.Show
         Screen.MousePointer = 0
     Case 5
         Screen.MousePointer = 11
