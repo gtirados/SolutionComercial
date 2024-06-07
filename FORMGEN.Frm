@@ -3165,7 +3165,6 @@ Begin VB.Form FORMGEN
       _ExtentY        =   661
       _Version        =   393217
       BackColor       =   14737632
-      Enabled         =   -1  'True
       MultiLine       =   0   'False
       TextRTF         =   $"FORMGEN.frx":502A
       BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
@@ -8539,7 +8538,7 @@ Private Sub chkIGV_Click()
 
 End Sub
 
-Private Sub cmdcancelar_Click()
+Private Sub cmdCancelar_Click()
     lvwArticulos.ListItems.Clear
     fraArtNC.Visible = False
 End Sub
@@ -8955,7 +8954,7 @@ Private Sub cmdltcancelar_Click()
     grabar.Enabled = True
 End Sub
 
-Private Sub cmdmostrar_Click()
+Private Sub cmdMostrar_Click()
 
 Dim PSLOC_PEDIDOS As rdoQuery
 Dim loc_pedidos   As rdoResultset
@@ -9130,7 +9129,7 @@ Dim iFila As Integer
         Cantidad = 0
     Next i
     calcula_totales
-    cmdcancelar_Click
+    cmdCancelar_Click
 Exit Sub
 
 ExistArt:
@@ -10014,12 +10013,12 @@ grid_unid.MergeRow(0) = True
        If Trim(grid_unid.TextMatrix(0, fil)) = "" Then grid_unid.ColWidth(fil) = 0
        ws_ancho = ws_ancho + grid_unid.ColWidth(fil)
    Next fil
-  Fcomun.Top = 400
-  Fcomun.Width = ws_ancho
+  fcomun.Top = 400
+  fcomun.Width = ws_ancho
   grid_unid.Width = ws_ancho
   grid_unid.Left = 0
-  Fcomun.Left = 9500 - ws_ancho
-  Fcomun.Height = 1400
+  fcomun.Left = 9500 - ws_ancho
+  fcomun.Height = 1400
   grid_unid.Height = 800
   If FORMGEN.i_ds.Visible And FORMGEN.i_ds.ListCount > 0 Then
     FORMGEN.i_ds.ListIndex = 0
@@ -17555,7 +17554,7 @@ If LK_EMP = "3AA" And LK_CODTRA <> 2414 Then
    Exit Sub
 End If
 'i_unidades_KeyPress 13
- SendKeys "%{DOWN}"
+ 'SendKeys "%{DOWN}"
 
 
 'i_unidades.ListIndex = 0
@@ -25829,9 +25828,9 @@ Dim FlagSolicitud As Integer
         LEER_CLI_LLAVE
         If Not cli_llave.EOF Then
             lblCli.Caption = cli_llave("CLI_NOMBRE")
-            txtruc.Text = cli_llave("CLI_RUC_ESPOSO")
+            txtRuc.Text = cli_llave("CLI_RUC_ESPOSO")
         End If
-        txtruc.Text = ped_llave("Ped_RUCCLIE")
+        txtRuc.Text = ped_llave("Ped_RUCCLIE")
         txtNroDoc.Text = Nulo_Valor0(ped_llave("PED_NUMDOC"))
         
         PUB_IMPTO = ped_llave("Ped_IGV")
@@ -26151,7 +26150,7 @@ Private Sub cmdcancelOC_Click()
     lblCli.Caption = ""
     txtNroDoc.Text = ""
     txtFecha.Text = "__/__/____"
-    txtruc.Text = ""
+    txtRuc.Text = ""
     stbSubtotales.Panels(1).Text = "0.000"
     stbSubtotales.Panels(3).Text = "0.000"
     stbSubtotales.Panels(2).Text = "0.000"

@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "Mscomctl.ocx"
 Begin VB.Form frmTransportista 
    Caption         =   "Datos de Transportista"
    ClientHeight    =   8550
@@ -11,6 +11,7 @@ Begin VB.Form frmTransportista
    MDIChild        =   -1  'True
    ScaleHeight     =   8550
    ScaleWidth      =   11505
+   Visible         =   0   'False
    WindowState     =   2  'Maximized
    Begin MSComctlLib.ListView ListView1 
       Height          =   1260
@@ -55,10 +56,11 @@ Begin VB.Form frmTransportista
          Strikethrough   =   0   'False
       EndProperty
       Height          =   360
-      Left            =   6000
+      Left            =   6240
       MaxLength       =   12
       TabIndex        =   31
-      Top             =   3480
+      Top             =   7080
+      Visible         =   0   'False
       Width           =   1575
    End
    Begin VB.CommandButton cmdAgregar 
@@ -172,10 +174,11 @@ Begin VB.Form frmTransportista
          Strikethrough   =   0   'False
       EndProperty
       Height          =   285
-      Left            =   3000
+      Left            =   3480
       MaxLength       =   12
       TabIndex        =   3
-      Top             =   2610
+      Top             =   7050
+      Visible         =   0   'False
       Width           =   1575
    End
    Begin VB.TextBox txtFindRegistro 
@@ -211,7 +214,7 @@ Begin VB.Form frmTransportista
       MaxLength       =   40
       TabIndex        =   1
       Top             =   1680
-      Width           =   4815
+      Width           =   4800
    End
    Begin VB.TextBox txtdireccion 
       BeginProperty Font 
@@ -224,10 +227,11 @@ Begin VB.Form frmTransportista
          Strikethrough   =   0   'False
       EndProperty
       Height          =   285
-      Left            =   3015
+      Left            =   2775
       MaxLength       =   40
       TabIndex        =   2
-      Top             =   2160
+      Top             =   6000
+      Visible         =   0   'False
       Width           =   4815
    End
    Begin VB.TextBox txtDni 
@@ -241,10 +245,11 @@ Begin VB.Form frmTransportista
          Strikethrough   =   0   'False
       EndProperty
       Height          =   285
-      Left            =   3015
+      Left            =   3495
       MaxLength       =   10
       TabIndex        =   4
-      Top             =   3135
+      Top             =   7215
+      Visible         =   0   'False
       Width           =   1335
    End
    Begin VB.TextBox txtPlaca 
@@ -278,7 +283,7 @@ Begin VB.Form frmTransportista
       Left            =   3000
       MaxLength       =   12
       TabIndex        =   8
-      Top             =   5415
+      Top             =   2655
       Width           =   1335
    End
    Begin VB.TextBox txtbrevete 
@@ -295,8 +300,8 @@ Begin VB.Form frmTransportista
       Left            =   3000
       MaxLength       =   40
       TabIndex        =   9
-      Top             =   5895
-      Width           =   4815
+      Top             =   3135
+      Width           =   1335
    End
    Begin VB.TextBox txtchofer 
       BeginProperty Font 
@@ -309,10 +314,10 @@ Begin VB.Form frmTransportista
          Strikethrough   =   0   'False
       EndProperty
       Height          =   285
-      Left            =   3030
+      Left            =   3000
       MaxLength       =   40
       TabIndex        =   6
-      Top             =   4455
+      Top             =   2160
       Width           =   4815
    End
    Begin VB.TextBox txtdirechofer 
@@ -329,7 +334,8 @@ Begin VB.Form frmTransportista
       Left            =   3030
       MaxLength       =   40
       TabIndex        =   7
-      Top             =   4935
+      Top             =   6495
+      Visible         =   0   'False
       Width           =   4815
    End
    Begin VB.Label Label1 
@@ -348,9 +354,10 @@ Begin VB.Form frmTransportista
       ForeColor       =   &H0080FFFF&
       Height          =   195
       Index           =   17
-      Left            =   5160
+      Left            =   5400
       TabIndex        =   32
-      Top             =   3600
+      Top             =   7200
+      Visible         =   0   'False
       Width           =   615
    End
    Begin VB.Label Label1 
@@ -392,7 +399,8 @@ Begin VB.Form frmTransportista
       Index           =   7
       Left            =   4365
       TabIndex        =   28
-      Top             =   4155
+      Top             =   5715
+      Visible         =   0   'False
       Width           =   1725
    End
    Begin VB.Label Label3 
@@ -463,9 +471,10 @@ Begin VB.Form frmTransportista
       ForeColor       =   &H0080FFFF&
       Height          =   195
       Index           =   11
-      Left            =   1815
+      Left            =   1575
       TabIndex        =   17
-      Top             =   2160
+      Top             =   6000
+      Visible         =   0   'False
       Width           =   870
    End
    Begin VB.Label Label1 
@@ -484,9 +493,10 @@ Begin VB.Form frmTransportista
       ForeColor       =   &H0080FFFF&
       Height          =   195
       Index           =   12
-      Left            =   1815
+      Left            =   2295
       TabIndex        =   16
-      Top             =   2640
+      Top             =   7080
+      Visible         =   0   'False
       Width           =   435
    End
    Begin VB.Label Label1 
@@ -505,9 +515,10 @@ Begin VB.Form frmTransportista
       ForeColor       =   &H0080FFFF&
       Height          =   195
       Index           =   13
-      Left            =   1815
+      Left            =   2295
       TabIndex        =   15
-      Top             =   3120
+      Top             =   7200
+      Visible         =   0   'False
       Width           =   390
    End
    Begin VB.Label Label1 
@@ -548,8 +559,8 @@ Begin VB.Form frmTransportista
       Index           =   5
       Left            =   1800
       TabIndex        =   13
-      Top             =   5415
-      Width           =   1095
+      Top             =   2655
+      Width           =   735
    End
    Begin VB.Label Label1 
       BackStyle       =   0  'Transparent
@@ -568,12 +579,12 @@ Begin VB.Form frmTransportista
       Index           =   4
       Left            =   1800
       TabIndex        =   12
-      Top             =   5895
+      Top             =   3135
       Width           =   975
    End
    Begin VB.Label Label1 
       BackStyle       =   0  'Transparent
-      Caption         =   "Chofer : "
+      Caption         =   "Apellidos : "
       BeginProperty Font 
          Name            =   "Tahoma"
          Size            =   8.25
@@ -586,9 +597,9 @@ Begin VB.Form frmTransportista
       ForeColor       =   &H0000FFFF&
       Height          =   255
       Index           =   3
-      Left            =   1830
+      Left            =   1800
       TabIndex        =   11
-      Top             =   4455
+      Top             =   2160
       Width           =   855
    End
    Begin VB.Label Label1 
@@ -608,7 +619,8 @@ Begin VB.Form frmTransportista
       Index           =   2
       Left            =   1830
       TabIndex        =   10
-      Top             =   4935
+      Top             =   6495
+      Visible         =   0   'False
       Width           =   975
    End
    Begin VB.Label Label1 
@@ -626,9 +638,10 @@ Begin VB.Form frmTransportista
       ForeColor       =   &H00C00000&
       Height          =   2385
       Index           =   6
-      Left            =   1425
+      Left            =   1305
       TabIndex        =   27
-      Top             =   4080
+      Top             =   5640
+      Visible         =   0   'False
       Width           =   7530
    End
    Begin VB.Label Label1 
@@ -644,7 +657,7 @@ Begin VB.Form frmTransportista
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00C00000&
-      Height          =   3300
+      Height          =   4020
       Index           =   8
       Left            =   1410
       TabIndex        =   29
@@ -696,7 +709,7 @@ End If
     RSTRA!trn_codcia = LK_CODCIA
     RSTRA!TRN_NOMBRE = txtnombre.Text
     RSTRA!TRN_DIRECCION = txtdireccion.Text
-    RSTRA!TRN_RUC = Trim(txtRuc.Text)
+    RSTRA!TRN_RUC = Trim(txtruc.Text)
     RSTRA!TRN_DNI = Trim(txtDni.Text)
     RSTRA!TRN_PLACA = txtPlaca.Text
     RSTRA!TRN_CHOFER = txtchofer.Text
@@ -713,7 +726,7 @@ Dim i As Integer
     If ban = 0 Then
        If loc_key > ListView1.ListItems.count Or loc_key = 0 Then
          Else
-          txtFindRegistro.Text = Trim(ListView1.ListItems.Item(loc_key).SubItems(1))
+          txtFindRegistro.Text = Trim(ListView1.ListItems.item(loc_key).SubItems(1))
        End If
        CODTRANSP = Val(txtFindRegistro.Text)
        PUB_CODCIA = LK_CODCIA
@@ -723,7 +736,7 @@ Dim i As Integer
     If Not RSTRA.EOF Then
         txtnombre.Text = Nulo_Valors(RSTRA!TRN_NOMBRE)
         txtdireccion.Text = Nulo_Valors(RSTRA!TRN_DIRECCION)
-        txtRuc.Text = Nulo_Valors(RSTRA!TRN_RUC)
+        txtruc.Text = Nulo_Valors(RSTRA!TRN_RUC)
         txtDni.Text = Nulo_Valors(RSTRA!TRN_DNI)
         txtPlaca.Text = Nulo_Valors(RSTRA!TRN_PLACA)
         txtchofer.Text = Nulo_Valors(RSTRA!TRN_CHOFER)
@@ -741,7 +754,7 @@ Public Sub LIMPIA_TRA()
     txtFindRegistro.Text = ""
     txtnombre.Text = ""
     txtdireccion.Text = ""
-    txtRuc.Text = ""
+    txtruc.Text = ""
     txtDni.Text = ""
     txtPlaca.Text = ""
     txtchofer.Text = ""
@@ -761,7 +774,7 @@ If Left(cmdAgregar.Caption, 2) = "&A" Then
     cmdModificar.Enabled = False
     cmdEliminar.Enabled = False
     LIMPIA_TRA
-    FrmVen.DESBLOQUEA_TEXT txtnombre, txtdireccion, txtRuc, txtDni, txtPlaca, txtchofer, txtdirechofer, txtbrevete, txtdnichofer, txtCertificado ', txtArrenNom, txtArrenRUC
+    FrmVen.DESBLOQUEA_TEXT txtnombre, txtdireccion, txtruc, txtDni, txtPlaca, txtchofer, txtdirechofer, txtbrevete, txtdnichofer, txtCertificado ', txtArrenNom, txtArrenRUC
     txtFindRegistro = GENERA_TRA
     txtnombre.SetFocus
 Else
@@ -788,7 +801,7 @@ Else
    cmdEliminar.Enabled = True
    cmdModificar.Enabled = True
    LIMPIA_TRA
-   FrmVen.BLOQUEA_TEXT txtnombre, txtdireccion, txtRuc, txtDni, txtPlaca, txtchofer, txtdirechofer, txtbrevete, txtdnichofer, txtCertificado ', txtArrenNom, txtArrenRUC
+   FrmVen.BLOQUEA_TEXT txtnombre, txtdireccion, txtruc, txtDni, txtPlaca, txtchofer, txtdirechofer, txtbrevete, txtdnichofer, txtCertificado ', txtArrenNom, txtArrenRUC
       
    txtFindRegistro.Locked = False
    txtFindRegistro.SetFocus
@@ -798,7 +811,7 @@ End If
    
 End Sub
 
-Private Sub cmdcancelar_Click()
+Private Sub cmdCancelar_Click()
 If Left(cmdAgregar.Caption, 2) = "&A" And Left(cmdModificar.Caption, 2) = "&M" Then
     LIMPIA_TRA
     txtFindRegistro.Locked = False
@@ -810,12 +823,12 @@ End If
      If Left(cmdModificar.Caption, 2) = "&G" Then
         cmdModificar.Caption = "&Modificar"
         LLENA_TRA 1
-        FrmVen.BLOQUEA_TEXT txtnombre, txtdireccion, txtRuc, txtDni, txtPlaca, txtchofer, txtdirechofer, txtbrevete, txtdnichofer, txtCertificado
+        FrmVen.BLOQUEA_TEXT txtnombre, txtdireccion, txtruc, txtDni, txtPlaca, txtchofer, txtdirechofer, txtbrevete, txtdnichofer, txtCertificado
         txtFindRegistro.Locked = True
      Else
         cmdAgregar.Caption = "&Agregar"
         LIMPIA_TRA
-        FrmVen.BLOQUEA_TEXT txtnombre, txtdireccion, txtRuc, txtDni, txtPlaca, txtchofer, txtdirechofer, txtbrevete, txtdnichofer, txtCertificado
+        FrmVen.BLOQUEA_TEXT txtnombre, txtdireccion, txtruc, txtDni, txtPlaca, txtchofer, txtdirechofer, txtbrevete, txtdnichofer, txtCertificado
         txtFindRegistro.Locked = False
      End If
      cmdCerrar.Caption = "&Cerrar"
@@ -880,7 +893,7 @@ If Left(cmdModificar.Caption, 2) = "&M" Then
     cmdEliminar.Enabled = False
     cmdCancelar.Enabled = True
     txtFindRegistro.Locked = True
-    FrmVen.DESBLOQUEA_TEXT txtnombre, txtdireccion, txtRuc, txtDni, txtPlaca, txtchofer, txtdirechofer, txtbrevete, txtdnichofer, txtCertificado
+    FrmVen.DESBLOQUEA_TEXT txtnombre, txtdireccion, txtruc, txtDni, txtPlaca, txtchofer, txtdirechofer, txtbrevete, txtdnichofer, txtCertificado
     txtnombre.SetFocus
 Else
     '*Grabar las modificaciones
@@ -895,7 +908,7 @@ Else
      cmdAgregar.Enabled = True
      cmdEliminar.Enabled = True
      txtFindRegistro.Locked = True
-     FrmVen.BLOQUEA_TEXT txtnombre, txtdireccion, txtRuc, txtDni, txtPlaca, txtchofer, txtdirechofer, txtbrevete, txtdnichofer, txtCertificado
+     FrmVen.BLOQUEA_TEXT txtnombre, txtdireccion, txtruc, txtDni, txtPlaca, txtchofer, txtdirechofer, txtbrevete, txtdnichofer, txtCertificado
      Screen.MousePointer = 0
 End If
 
@@ -910,7 +923,7 @@ Private Sub Form_Load()
     PSTRA.rdoParameters(1) = LK_CODCIA
     loc_key = 0
     LIMPIA_TRA
-    FrmVen.BLOQUEA_TEXT txtnombre, txtdireccion, txtRuc, txtDni, txtPlaca, txtchofer, txtdirechofer, txtbrevete, txtdnichofer, txtCertificado
+    FrmVen.BLOQUEA_TEXT txtnombre, txtdireccion, txtruc, txtDni, txtPlaca, txtchofer, txtdirechofer, txtbrevete, txtdnichofer, txtCertificado
     txtFindRegistro.Enabled = True
 
     ListView1.ColumnHeaders.Add , , "Nombres", 5000
@@ -921,12 +934,12 @@ End Sub
 ''=========================PARA BUSCADOR
 Private Sub LlenaList()
 Dim i As Long
-Dim J As Integer
+Dim j As Integer
     ListView1.ListItems.Clear
     Do While Not RSALLTRA.EOF
         i = i + 1
-        Set loListItem = ListView1.ListItems.Add(, "k" + CStr(RSALLTRA("TRN_KEY")), RSALLTRA("TRN_NOMBRE"))
-        loListItem.ListSubItems.Add Key:="Nombre" & CStr(J), Text:=RSALLTRA("TRN_KEY")
+        Set loListItem = ListView1.ListItems.Add(, "k" + CStr(RSALLTRA("TRN_KEY")), RSALLTRA("TRN_NOMBRE") + " " + RSALLTRA("TRN_CHOFER"))
+        loListItem.ListSubItems.Add key:="Nombre" & CStr(j), Text:=RSALLTRA("TRN_KEY")
         RSALLTRA.MoveNext
     Loop
     Set RSALLTRA = Nothing
@@ -946,11 +959,11 @@ Private Sub ListView1_DblClick()
     cmdModificar.SetFocus
 End Sub
 
-Private Sub ListView1_ItemClick(ByVal Item As MSComctlLib.ListItem)
-    Item.EnsureVisible
-    Item.Selected = True
-    liIndexRegAct = Item.Index
-    txtFindRegistro.Text = Item.Text
+Private Sub ListView1_ItemClick(ByVal item As MSComctlLib.ListItem)
+    item.EnsureVisible
+    item.Selected = True
+    liIndexRegAct = item.index
+    txtFindRegistro.Text = item.Text
     txtFindRegistro.SetFocus
 End Sub
 
@@ -973,8 +986,8 @@ Dim liNumItems As Integer
         If liIndexRegAct > liNumItems Then liIndexRegAct = liNumItems
     End If
 If liIndexRegAct = 0 Then Exit Sub
-    ListView1.ListItems.Item(liIndexRegAct).EnsureVisible
-    ListView1.ListItems.Item(liIndexRegAct).Selected = True
+    ListView1.ListItems.item(liIndexRegAct).EnsureVisible
+    ListView1.ListItems.item(liIndexRegAct).Selected = True
     If KeyCode = 33 Or KeyCode = 34 Or KeyCode = 38 Or KeyCode = 40 Then txtFindRegistro.Text = ListView1.ListItems(liIndexRegAct).Text
     If KeyCode = 13 Then Call ListView1_DblClick
 End Sub
@@ -989,7 +1002,7 @@ Private Sub txtFindRegistro_KeyUp(KeyCode As Integer, Shift As Integer)
     If KeyCode >= 37 And KeyCode <= 40 Or (KeyCode = 33 Or KeyCode = 34) Then Exit Sub
     If Len(txtFindRegistro) = 1 Then
         
-        pub_cadena = "SELECT TRN_KEY, TRN_NOMBRE FROM TRANSPORTE WHERE TRN_NOMBRE LIKE '" & Trim(txtFindRegistro) & "%' AND TRN_CODCIA = '" & LK_CODCIA & "'"
+        pub_cadena = "SELECT TRN_KEY, TRN_NOMBRE,TRN_CHOFER FROM TRANSPORTE WHERE TRN_NOMBRE LIKE '" & Trim(txtFindRegistro) & "%' AND TRN_CODCIA = '" & LK_CODCIA & "'"
         Set PSALLTRA = CN.CreateQuery("", pub_cadena)
         Set RSALLTRA = PSALLTRA.OpenResultset(rdOpenKeyset, rdConcurValues)
         RSALLTRA.Requery
@@ -1009,7 +1022,7 @@ Dim strFindMe As String
    Else
         loListItem.EnsureVisible
         loListItem.Selected = True
-        liIndexRegAct = loListItem.Index
+        liIndexRegAct = loListItem.index
    End If
 End Sub
 Private Sub FormatObjects(ByVal lFlag As Integer)

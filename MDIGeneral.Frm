@@ -1,6 +1,6 @@
 VERSION 5.00
 Object = "{00025600-0000-0000-C000-000000000046}#5.2#0"; "Crystl32.OCX"
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "Mscomctl.ocx"
 Begin VB.MDIForm MDIForm1 
    BackColor       =   &H00E0E0E0&
    Caption         =   "Solution-Modulo de Gestion Comercial"
@@ -396,7 +396,7 @@ Begin VB.MDIForm MDIForm1
          Shortcut        =   ^B
       End
       Begin VB.Menu SubmenuTit1 
-         Caption         =   "-"
+         Caption         =   "Datos de Transportistas"
          Index           =   4
       End
       Begin VB.Menu SubmenuTit1 
@@ -486,11 +486,9 @@ Begin VB.MDIForm MDIForm1
          Shortcut        =   ^G
       End
       Begin VB.Menu SubmenuTit2 
-         Caption         =   "&Generar Pedidos de Ventas"
-         Enabled         =   0   'False
+         Caption         =   "&Generar Guias Remision"
          Index           =   1
          Shortcut        =   ^P
-         Visible         =   0   'False
       End
       Begin VB.Menu SubmenuTit2 
          Caption         =   "-"
@@ -1411,16 +1409,16 @@ End If
 
 If LK_CODUSU <> "ADMIN" Then
  MDIForm1.SubmenuTit1(8).Caption = "&Usuarios"
- MDIForm1.Toolbar1.Buttons.Item(2).ToolTipText = "Mant. Usuarios"
+ MDIForm1.Toolbar1.Buttons.item(2).ToolTipText = "Mant. Usuarios"
 Else
  MDIForm1.SubmenuTit1(8).Caption = "&Tablas"
- MDIForm1.Toolbar1.Buttons.Item(2).ToolTipText = "Mant. TABLAS"
+ MDIForm1.Toolbar1.Buttons.item(2).ToolTipText = "Mant. TABLAS"
 End If
 If LK_FLAG_SOS = "A" Then
  MDIForm1.SubmenuTit1(3).Visible = False
 End If
 If WFLAG = "A" Then
- MDIForm1.Toolbar1.Buttons.Item(13).Enabled = False
+ MDIForm1.Toolbar1.Buttons.item(13).Enabled = False
 End If
 
 ProBar.Value = ProBar.Value + 1
@@ -2005,9 +2003,9 @@ On Error GoTo SALE
 Select Case index
     Case 0
         Screen.MousePointer = 11
-        'Load frmARTI
-        'frmARTI.Show
-        frmGuiaRemision.Show
+        Load frmARTI
+        frmARTI.Show
+        'frmGuiaRemision.Show
         Screen.MousePointer = 0
     Case 1
         Screen.MousePointer = 11
@@ -2024,6 +2022,11 @@ Select Case index
         Load frmBancos
         Unload FORMGEN
         frmBancos.Show
+        Screen.MousePointer = 0
+    Case 4
+        Screen.MousePointer = 11
+        Load frmTransportista
+        frmTransportista.Show
         Screen.MousePointer = 0
     Case 5
         Screen.MousePointer = 11
@@ -2155,8 +2158,7 @@ Select Case index
         Screen.MousePointer = 0
     Case 1
         Screen.MousePointer = 11
-        Load FORM_COT
-        FORM_COT.Show
+        frmGuiaRemision.Show
         Screen.MousePointer = 0
     Case 3
         Screen.MousePointer = 11
@@ -2526,15 +2528,15 @@ Select Case Button.key
         
   Case "ALTERNO"
     If LK_FLAG_ALTERNO = "A" And LK_FLAG_ORIGINAL <> "A" Then
-      Toolbar1.Buttons.Item(12).ToolTipText = "Busqueda nombre de articulo."
+      Toolbar1.Buttons.item(12).ToolTipText = "Busqueda nombre de articulo."
       LK_FLAG_ALTERNO = " "
-      Toolbar1.Buttons.Item(12).Image = 18 '********** tenr en cuent
+      Toolbar1.Buttons.item(12).Image = 18 '********** tenr en cuent
       pub_cadena = "SELECT ART_KEY FROM ARTI WHERE ART_CODCIA = ? AND ART_KEY <> 0 order by art_NOMBRE"
       'DoEvents
     Else
-      Toolbar1.Buttons.Item(12).ToolTipText = "Busqueda sub-codigo de articulo."
+      Toolbar1.Buttons.item(12).ToolTipText = "Busqueda sub-codigo de articulo."
       LK_FLAG_ALTERNO = "A"
-      Toolbar1.Buttons.Item(12).Image = 5
+      Toolbar1.Buttons.item(12).Image = 5
       pub_cadena = "SELECT ART_ALTERNO FROM ARTI WHERE ART_CODCIA = ? AND ART_KEY <> 0 order by art_alterno"
     End If
     Set PSMANO_CODI = CN.CreateQuery("", pub_cadena)
