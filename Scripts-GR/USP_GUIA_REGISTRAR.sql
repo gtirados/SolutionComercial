@@ -23,7 +23,7 @@ CREATE PROCEDURE [dbo].[USP_GUIA_REGISTRAR]
     @CODIGOMOTIVOTRASLADO CHAR(2),
     @CODIGOMODALIDADTRASLADO CHAR(2),
     @IDTRASPORTISTA INT,
-    @PESO DECIMAL(6, 2),
+    @PESO DECIMAL(10, 2),
     @BULTOS INT,
     @PRODUCTOS NVARCHAR(MAX),
     @DESTINATARIOTIPO CHAR(1) = NULL,
@@ -91,7 +91,7 @@ BEGIN TRY
            idp,
            cant
     FROM
-        OPENXML(@idoc, '/r/d', 1)WITH (idp BIGINT, cant NUMERIC(9, 2));
+        OPENXML(@idoc, '/r/d', 1)WITH (idp BIGINT, cant DECIMAL(9, 2));
 
     EXEC sp_xml_removedocument @idoc;
 

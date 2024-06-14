@@ -1,10 +1,10 @@
 VERSION 5.00
-Object = "{C932BA88-4374-101B-A56C-00AA003668DC}#1.1#0"; "msmask32.ocx"
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.OCX"
-Object = "{48E59290-9880-11CF-9754-00AA00C00908}#1.0#0"; "MSINET.Ocx"
+Object = "{C932BA88-4374-101B-A56C-00AA003668DC}#1.1#0"; "MSMASK32.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "Mscomctl.ocx"
+Object = "{48E59290-9880-11CF-9754-00AA00C00908}#1.0#0"; "MSINET.OCX"
 Begin VB.Form frmGuiaRemisionSearch 
    BorderStyle     =   1  'Fixed Single
-   Caption         =   "Consultas de Guias de Remisión"
+   Caption         =   "Consultas de Guia de Remisión Electrónicas"
    ClientHeight    =   6510
    ClientLeft      =   45
    ClientTop       =   375

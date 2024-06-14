@@ -1,10 +1,10 @@
 VERSION 5.00
-Object = "{C932BA88-4374-101B-A56C-00AA003668DC}#1.1#0"; "msmask32.ocx"
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "MSCOMCTL.OCX"
-Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDatLst.Ocx"
+Object = "{C932BA88-4374-101B-A56C-00AA003668DC}#1.1#0"; "MSMASK32.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "Mscomctl.ocx"
+Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
 Begin VB.Form frmGuiaRemisionMain 
    BorderStyle     =   1  'Fixed Single
-   Caption         =   "Guia de Remisión"
+   Caption         =   "Guia de Remisión Electrónica"
    ClientHeight    =   9795
    ClientLeft      =   45
    ClientTop       =   375

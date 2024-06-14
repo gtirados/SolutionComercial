@@ -486,7 +486,7 @@ Begin VB.MDIForm MDIForm1
          Shortcut        =   ^G
       End
       Begin VB.Menu SubmenuTit2 
-         Caption         =   "&Generar Guias Remision"
+         Caption         =   "&Generar Guia de Remisión Electrónica"
          Index           =   1
          Shortcut        =   ^P
       End
@@ -1409,16 +1409,16 @@ End If
 
 If LK_CODUSU <> "ADMIN" Then
  MDIForm1.SubmenuTit1(8).Caption = "&Usuarios"
- MDIForm1.Toolbar1.Buttons.item(2).ToolTipText = "Mant. Usuarios"
+ MDIForm1.Toolbar1.Buttons.Item(2).ToolTipText = "Mant. Usuarios"
 Else
  MDIForm1.SubmenuTit1(8).Caption = "&Tablas"
- MDIForm1.Toolbar1.Buttons.item(2).ToolTipText = "Mant. TABLAS"
+ MDIForm1.Toolbar1.Buttons.Item(2).ToolTipText = "Mant. TABLAS"
 End If
 If LK_FLAG_SOS = "A" Then
  MDIForm1.SubmenuTit1(3).Visible = False
 End If
 If WFLAG = "A" Then
- MDIForm1.Toolbar1.Buttons.item(13).Enabled = False
+ MDIForm1.Toolbar1.Buttons.Item(13).Enabled = False
 End If
 
 ProBar.Value = ProBar.Value + 1
@@ -2528,15 +2528,15 @@ Select Case Button.key
         
   Case "ALTERNO"
     If LK_FLAG_ALTERNO = "A" And LK_FLAG_ORIGINAL <> "A" Then
-      Toolbar1.Buttons.item(12).ToolTipText = "Busqueda nombre de articulo."
+      Toolbar1.Buttons.Item(12).ToolTipText = "Busqueda nombre de articulo."
       LK_FLAG_ALTERNO = " "
-      Toolbar1.Buttons.item(12).Image = 18 '********** tenr en cuent
+      Toolbar1.Buttons.Item(12).Image = 18 '********** tenr en cuent
       pub_cadena = "SELECT ART_KEY FROM ARTI WHERE ART_CODCIA = ? AND ART_KEY <> 0 order by art_NOMBRE"
       'DoEvents
     Else
-      Toolbar1.Buttons.item(12).ToolTipText = "Busqueda sub-codigo de articulo."
+      Toolbar1.Buttons.Item(12).ToolTipText = "Busqueda sub-codigo de articulo."
       LK_FLAG_ALTERNO = "A"
-      Toolbar1.Buttons.item(12).Image = 5
+      Toolbar1.Buttons.Item(12).Image = 5
       pub_cadena = "SELECT ART_ALTERNO FROM ARTI WHERE ART_CODCIA = ? AND ART_KEY <> 0 order by art_alterno"
     End If
     Set PSMANO_CODI = CN.CreateQuery("", pub_cadena)
