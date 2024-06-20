@@ -450,7 +450,7 @@ If Me.chkDestinatario.Value = False Then
 End If
 End Sub
 
-Private Sub cmdGrabar_Click()
+Private Sub cmdgrabar_Click()
 
     If Me.lvListado.ListItems.count = 0 Then
         MsgBox "Debe agregar articulos para la Guia.", vbCritical, Pub_Titulo
@@ -536,7 +536,7 @@ Private Sub grabarGuia()
     oCmdEjec.CommandText = "[dbo].[USP_GUIA_REGISTRAR]"
     
     oCmdEjec.Parameters.Append oCmdEjec.CreateParameter("@CODCIA", adChar, adParamInput, 2, LK_CODCIA)
-    oCmdEjec.Parameters.Append oCmdEjec.CreateParameter("@IDCLIENTE", adBigInt, adParamInput, , Me.lblIDcliente.Caption)
+    oCmdEjec.Parameters.Append oCmdEjec.CreateParameter("@IDCLIENTE", adBigInt, adParamInput, , Me.lblIdCliente.Caption)
     oCmdEjec.Parameters.Append oCmdEjec.CreateParameter("@SERIE", adChar, adParamInput, 4, Me.lblSerie.Caption)
     oCmdEjec.Parameters.Append oCmdEjec.CreateParameter("@NUMERO", adBigInt, adParamInput, , Me.lblNumero.Caption)
     
@@ -633,7 +633,7 @@ End Sub
 
 Private Sub Form_Load()
 Me.MasFechaTraslado.Text = LK_FECHA_DIA
-    ConfigurarLv
+    ConfigurarLV
     LimpiaParametros oCmdEjec
     oCmdEjec.CommandText = "[dbo].[USP_VENTAS_DATOS]"
 
@@ -705,10 +705,11 @@ oCmdEjec.CommandText = "[dbo].[USP_NUMERACION_DOCUMENTOS]"
     
     If Not oRSnum.EOF Then
         Me.lblNumero.Caption = oRSnum!NUMERO
+        Me.lblSerie.Caption = oRSnum!serie
     End If
     
 End Sub
-Private Sub ConfigurarLv()
+Private Sub ConfigurarLV()
 With Me.lvListado
     .FullRowSelect = True
     .Gridlines = True

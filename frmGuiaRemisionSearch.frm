@@ -175,23 +175,24 @@ Private Sub cmdPdf_Click()
     MousePointer = vbHourglass
 
     ' Ruta del archivo PDF en el servidor
-    Dim sURL As String, sRUC As String, sNombreArchivo As String
+    Dim sURL As String, sRUC As String, sNombreArchivo As String, sCarpeta As String
     
     sURL = Leer_Ini(App.Path & "\config.ini", "URL", "http://51.89.237.222/gtsoftware/")
     sRUC = Leer_Ini(App.Path & "\config.ini", "RUC", "20559765381")
+    sCarpeta = Leer_Ini(App.Path & "\config.ini", "CARPETA", "c:\")
     sNombreArchivo = sRUC + "-09-" + Me.lvCab.SelectedItem.Text + "-" + Me.lvCab.SelectedItem.SubItems(1)
     
-    Dim url As String
+    Dim URL As String
 
-    url = sURL + "files/guia_electronica/PDF/" + sNombreArchivo + ".pdf"
+    URL = sURL + "files/guia_electronica/PDF/" + sNombreArchivo + ".pdf"
     
     ' Ruta donde se guardará el archivo en tu máquina local
     Dim archivoLocal As String
 
-    archivoLocal = "d:\" + sNombreArchivo + ".pdf"
+    archivoLocal = sCarpeta + sNombreArchivo + ".pdf"
     
     ' Llama a la función para descargar el archivo
-    If DescargarArchivo(url, archivoLocal) Then
+    If DescargarArchivo(URL, archivoLocal) Then
         MsgBox "Archivo descargado con éxito."
         frmGuiaRemisionPDF.xRuta = archivoLocal
         frmGuiaRemisionPDF.Show vbModal
@@ -208,17 +209,17 @@ xFile:
 End Sub
 
 
-Private Function DescargarArchivo(url As String, archivoLocal As String) As Boolean
+Private Function DescargarArchivo(URL As String, archivoLocal As String) As Boolean
     On Error GoTo ErrorHandler
 
     ' Configura el control Inet
     Inet1.Cancel ' Cancela cualquier operación en curso
     Inet1.Protocol = icHTTP ' Usa el protocolo HTTP
-    Inet1.url = url ' Especifica la URL del archivo
+    Inet1.URL = URL ' Especifica la URL del archivo
 
     ' Descarga el archivo
     Dim datos() As Byte
-    datos = Inet1.OpenURL(url, icByteArray)
+    datos = Inet1.OpenURL(URL, icByteArray)
     
     ' Guarda el archivo en la ruta especificada
     Dim numFile As Integer

@@ -446,7 +446,7 @@ Private Sub txtSearchCliente_KeyPress(KeyAscii As Integer)
             Me.lvSearch.ListItems.Clear
             LimpiaParametros oCmdEjec
             oCmdEjec.CommandText = "[dbo].[USP_CLIENTES_FILL]"
-            Set orspago = oCmdEjec.Execute(, Me.txtSearchCliente.Text)
+            Set orspago = oCmdEjec.Execute(, Array(Me.txtSearchCliente.Text, LK_CODCIA))
 
             Dim Item As Object
             
