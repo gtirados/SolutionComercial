@@ -30,8 +30,8 @@ Begin VB.Form FORMGEN
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
    PaletteMode     =   1  'UseZOrder
-   ScaleHeight     =   6480
-   ScaleWidth      =   11655
+   ScaleHeight     =   11115
+   ScaleWidth      =   20340
    Tag             =   "55"
    WindowState     =   2  'Maximized
    Begin VB.CommandButton cmdultcompras 
@@ -3165,6 +3165,7 @@ Begin VB.Form FORMGEN
       _ExtentY        =   661
       _Version        =   393217
       BackColor       =   14737632
+      Enabled         =   -1  'True
       MultiLine       =   0   'False
       TextRTF         =   $"FORMGEN.frx":502A
       BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
@@ -9584,14 +9585,14 @@ Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
 Dim iFormCount As Integer
 If KeyCode = 120 Then ' F9
 If LK_FLAG_ALTERNO = "A" And LK_FLAG_ORIGINAL <> "A" Then
-      MDIForm1.Toolbar1.Buttons.item(12).ToolTipText = "Busqueda nombre de articulo."
+      MDIForm1.Toolbar1.Buttons.Item(12).ToolTipText = "Busqueda nombre de articulo."
       LK_FLAG_ALTERNO = " "
-      MDIForm1.Toolbar1.Buttons.item(12).Image = 18 '********** tenr en cuent
+      MDIForm1.Toolbar1.Buttons.Item(12).Image = 18 '********** tenr en cuent
       'DoEvents
     Else
-      MDIForm1.Toolbar1.Buttons.item(12).ToolTipText = "Busqueda sub-codigo de articulo."
+      MDIForm1.Toolbar1.Buttons.Item(12).ToolTipText = "Busqueda sub-codigo de articulo."
       LK_FLAG_ALTERNO = "A"
-      MDIForm1.Toolbar1.Buttons.item(12).Image = 5
+      MDIForm1.Toolbar1.Buttons.Item(12).Image = 5
     End If
    If Forms.count - 1 > 0 Then
      For iFormCount = Forms.count - 1 To 1 Step -1
@@ -10321,11 +10322,11 @@ repite:
     
     
     If LK_PASA_BOLETAS = "A" And (LK_CODTRA = 2401 Or LK_CODTRA = 2402 Or LK_CODTRA = 2412) And i_fbg.Text <> "P" Then  ' And i_fbg.Text = "F" Then
-        CrearArchivoPlano i_fbg.Text, Me.i_numser.Text, Me.i_numfac.Text
+        'CrearArchivoPlano i_fbg.Text, Me.i_numser.Text, Me.i_numfac.Text
     ElseIf (LK_CODTRA = 2401 Or LK_CODTRA = 2402 Or LK_CODTRA = 2412) And i_fbg.Text = "F" Then
-        CrearArchivoPlano i_fbg.Text, Me.i_numser.Text, Me.i_numfac.Text
+        'CrearArchivoPlano i_fbg.Text, Me.i_numser.Text, Me.i_numfac.Text
     ElseIf LK_CODTRA = 1111 And (ww_codtra_ext = 2401 Or ww_codtra_ext = 2402 Or ww_codtra_ext = 2412) And (PUB_FBG = "F" Or PUB_FBG = "N" Or PUB_FBG = "D") Then
-        CrearArchivoPlano i_fbg.Text, "", 1
+        'CrearArchivoPlano i_fbg.Text, "", 1
     End If
 
     con_llave.Close
@@ -14655,8 +14656,8 @@ If KeyCode <> 40 And KeyCode <> 38 And KeyCode <> 34 And KeyCode <> 33 And i_cod
   loc_key = 1
   Set LV_CCM.SelectedItem = LV_CCM.ListItems(loc_key)
 '  LV_ccm.Visible = False
-  LV_CCM.ListItems.item(loc_key).Selected = True
-  LV_CCM.ListItems.item(loc_key).EnsureVisible
+  LV_CCM.ListItems.Item(loc_key).Selected = True
+  LV_CCM.ListItems.Item(loc_key).EnsureVisible
   GoTo fin
 End If
 
@@ -14683,9 +14684,9 @@ End If
 GoTo fin
 POSICION:
 '  KeyCode = 0
-  LV_CCM.ListItems.item(loc_key).Selected = True
-  LV_CCM.ListItems.item(loc_key).EnsureVisible
-  i_codban.Text = Trim(LV_CCM.ListItems.item(loc_key).Text) & " "
+  LV_CCM.ListItems.Item(loc_key).Selected = True
+  LV_CCM.ListItems.Item(loc_key).EnsureVisible
+  i_codban.Text = Trim(LV_CCM.ListItems.Item(loc_key).Text) & " "
   DoEvents
   i_codban.SelStart = Len(i_codban.Text)
   DoEvents
@@ -14713,7 +14714,7 @@ End If
 If IsNumeric(FORMGEN.i_codban.Text) Then
 PUB_CODBAN = Val(FORMGEN.i_codban.Text)
 Else
- PUB_CODBAN = Trim(LV_CCM.ListItems.item(loc_key).SubItems(1)) 'Val(FORMGEN.i_codban.text)
+ PUB_CODBAN = Trim(LV_CCM.ListItems.Item(loc_key).SubItems(1)) 'Val(FORMGEN.i_codban.text)
  FORMGEN.i_codban.Text = PUB_CODBAN
 End If
 If Len(i_codban.Text) = 0 Then
@@ -14743,13 +14744,13 @@ If PUB_CODBAN <> 0 Then
    End If
 Else
  On Error GoTo VERI
-   If loc_key <> 0 Then valor = UCase(LV_CCM.ListItems.item(loc_key).Text)
+   If loc_key <> 0 Then valor = UCase(LV_CCM.ListItems.Item(loc_key).Text)
    If Trim(UCase(i_codban.Text)) = Left(valor, Len(Trim(i_codban.Text))) Then
    Else
       Exit Sub
    End If
    If loc_key = 0 Then Exit Sub
-   i_codban.Text = Trim(LV_CCM.ListItems.item(loc_key).SubItems(1))
+   i_codban.Text = Trim(LV_CCM.ListItems.Item(loc_key).SubItems(1))
    PUB_CODBAN = Val(FORMGEN.i_codban.Text)
    SQ_OPER = 1
    pu_codcia = LK_CODCIA
@@ -14813,9 +14814,9 @@ If LV_CCM.Visible Then
    itmFound.Selected = True
    loc_key = itmFound.Tag
    If loc_key + 8 > LV_CCM.ListItems.count Then
-      LV_CCM.ListItems.item(LV_CCM.ListItems.count).EnsureVisible
+      LV_CCM.ListItems.Item(LV_CCM.ListItems.count).EnsureVisible
    Else
-     LV_CCM.ListItems.item(loc_key + 8).EnsureVisible
+     LV_CCM.ListItems.Item(loc_key + 8).EnsureVisible
    End If
    DoEvents
   End If
@@ -14880,8 +14881,8 @@ If KeyCode <> 40 And KeyCode <> 38 And KeyCode <> 34 And KeyCode <> 33 And i_cod
   loc_key = 1
   Set LV_CCM.SelectedItem = LV_CCM.ListItems(loc_key)
 '  LV_ccm.Visible = False
-  LV_CCM.ListItems.item(loc_key).Selected = True
-  LV_CCM.ListItems.item(loc_key).EnsureVisible
+  LV_CCM.ListItems.Item(loc_key).Selected = True
+  LV_CCM.ListItems.Item(loc_key).EnsureVisible
   GoTo fin
 End If
 
@@ -14908,9 +14909,9 @@ End If
 GoTo fin
 POSICION:
 '  KeyCode = 0
-  LV_CCM.ListItems.item(loc_key).Selected = True
-  LV_CCM.ListItems.item(loc_key).EnsureVisible
-  i_codban2.Text = Trim(LV_CCM.ListItems.item(loc_key).Text) & " "
+  LV_CCM.ListItems.Item(loc_key).Selected = True
+  LV_CCM.ListItems.Item(loc_key).EnsureVisible
+  i_codban2.Text = Trim(LV_CCM.ListItems.Item(loc_key).Text) & " "
   DoEvents
   i_codban2.SelStart = Len(i_codban2.Text)
   DoEvents
@@ -14954,13 +14955,13 @@ If PUB_CODBAN <> 0 Then
     FORMGEN.i_nomban2.Caption = ccm_llave(2)
    End If
 Else
-   If loc_key <> 0 Then valor = UCase(LV_CCM.ListItems.item(loc_key).Text)
+   If loc_key <> 0 Then valor = UCase(LV_CCM.ListItems.Item(loc_key).Text)
    If Trim(UCase(i_codban2.Text)) = Left(valor, Len(Trim(i_codban2.Text))) Then
    Else
       Exit Sub
    End If
    If loc_key = 0 Then Exit Sub
-   i_codban2.Text = Trim(LV_CCM.ListItems.item(loc_key).SubItems(1))
+   i_codban2.Text = Trim(LV_CCM.ListItems.Item(loc_key).SubItems(1))
    PUB_CODBAN = Val(FORMGEN.i_codban2.Text)
    SQ_OPER = 1
    pu_codcia = LK_CODCIA
@@ -15009,9 +15010,9 @@ If LV_CCM.Visible Then
    itmFound.Selected = True
    loc_key = itmFound.Tag
    If loc_key + 8 > LV_CCM.ListItems.count Then
-      LV_CCM.ListItems.item(LV_CCM.ListItems.count).EnsureVisible
+      LV_CCM.ListItems.Item(LV_CCM.ListItems.count).EnsureVisible
    Else
-     LV_CCM.ListItems.item(loc_key + 8).EnsureVisible
+     LV_CCM.ListItems.Item(loc_key + 8).EnsureVisible
    End If
    DoEvents
   End If
@@ -15065,8 +15066,8 @@ If KeyCode <> 40 And KeyCode <> 38 And KeyCode <> 34 And KeyCode <> 33 And i_cod
   loc_key = 1
   Set LV_CLI.SelectedItem = LV_CLI.ListItems(loc_key)
 '  LV_CLI.Visible = False
-  LV_CLI.ListItems.item(loc_key).Selected = True
-  LV_CLI.ListItems.item(loc_key).EnsureVisible
+  LV_CLI.ListItems.Item(loc_key).Selected = True
+  LV_CLI.ListItems.Item(loc_key).EnsureVisible
   GoTo fin
 End If
 
@@ -15093,9 +15094,9 @@ End If
 GoTo fin
 POSICION:
 '  KeyCode = 0
-  LV_CLI.ListItems.item(loc_key).Selected = True
-  LV_CLI.ListItems.item(loc_key).EnsureVisible
-  i_codcli.Text = Trim(LV_CLI.ListItems.item(loc_key).Text) & " "
+  LV_CLI.ListItems.Item(loc_key).Selected = True
+  LV_CLI.ListItems.Item(loc_key).EnsureVisible
+  i_codcli.Text = Trim(LV_CLI.ListItems.Item(loc_key).Text) & " "
 '  DoEvents
   i_codcli.SelStart = Len(i_codcli.Text)
 '  DoEvents
@@ -15140,9 +15141,9 @@ If LV_CLI.Visible Then
    itmFound.Selected = True
    loc_key = itmFound.Tag
    If loc_key + 8 > LV_CLI.ListItems.count Then
-      LV_CLI.ListItems.item(LV_CLI.ListItems.count).EnsureVisible
+      LV_CLI.ListItems.Item(LV_CLI.ListItems.count).EnsureVisible
    Else
-     LV_CLI.ListItems.item(loc_key + 8).EnsureVisible
+     LV_CLI.ListItems.Item(loc_key + 8).EnsureVisible
    End If
   End If
   Exit Sub
@@ -15438,8 +15439,8 @@ End If
 If KeyCode <> 40 And KeyCode <> 38 And KeyCode <> 34 And KeyCode <> 33 And i_codcli.Text = "" Then
   loc_key = 1
   Set LV_VEN.SelectedItem = LV_VEN.ListItems(loc_key)
-  LV_VEN.ListItems.item(loc_key).Selected = True
-  LV_VEN.ListItems.item(loc_key).EnsureVisible
+  LV_VEN.ListItems.Item(loc_key).Selected = True
+  LV_VEN.ListItems.Item(loc_key).EnsureVisible
   GoTo fin
 End If
 
@@ -15466,9 +15467,9 @@ End If
 GoTo fin
 POSICION:
 '  KeyCode = 0
-  LV_VEN.ListItems.item(loc_key).Selected = True
-  LV_VEN.ListItems.item(loc_key).EnsureVisible
-  i_codven.Text = Trim(LV_VEN.ListItems.item(loc_key).Text) & " "
+  LV_VEN.ListItems.Item(loc_key).Selected = True
+  LV_VEN.ListItems.Item(loc_key).EnsureVisible
+  i_codven.Text = Trim(LV_VEN.ListItems.Item(loc_key).Text) & " "
   DoEvents
   i_codven.SelStart = Len(i_codven.Text)
   DoEvents
@@ -15522,9 +15523,9 @@ If LV_VEN.Visible Then
    itmFound.Selected = True
    loc_key = itmFound.Tag
    If loc_key + 8 > LV_VEN.ListItems.count Then
-      LV_VEN.ListItems.item(LV_VEN.ListItems.count).EnsureVisible
+      LV_VEN.ListItems.Item(LV_VEN.ListItems.count).EnsureVisible
    Else
-     LV_VEN.ListItems.item(loc_key + 8).EnsureVisible
+     LV_VEN.ListItems.Item(loc_key + 8).EnsureVisible
    End If
    DoEvents
   End If
@@ -17986,13 +17987,13 @@ If pu_codclie <> 0 And IsNumeric(i_codcli.Text) = True Then
    
 Else
 On Error GoTo sigue
-   If loc_key <> 0 Then valor = UCase(LV_CLI.ListItems.item(loc_key).Text)
+   If loc_key <> 0 Then valor = UCase(LV_CLI.ListItems.Item(loc_key).Text)
    If Trim(UCase(i_codcli.Text)) = Left(valor, Len(Trim(i_codcli.Text))) Then
    Else
       Exit Sub
    End If
    If loc_key = 0 Then Exit Sub
-   i_codcli.Text = Trim(LV_CLI.ListItems.item(loc_key).SubItems(1))
+   i_codcli.Text = Trim(LV_CLI.ListItems.Item(loc_key).SubItems(1))
    pu_codclie = Val(FORMGEN.i_codcli.Text)
    pu_cp = PUB_CP
    SQ_OPER = 1
@@ -18164,7 +18165,7 @@ If PUB_CODVEN <> 0 And IsNumeric(i_codven.Text) = True Then
    End If
 Else
 On Error GoTo sigue
-   If loc_key > 0 Then valor = UCase(LV_VEN.ListItems.item(loc_key).Text)
+   If loc_key > 0 Then valor = UCase(LV_VEN.ListItems.Item(loc_key).Text)
    If Trim(UCase(i_codven.Text)) = Left(valor, Len(Trim(i_codven.Text))) Then
    Else
       Exit Sub
@@ -18172,7 +18173,7 @@ On Error GoTo sigue
    
    If loc_key = 0 Then Exit Sub
    
-   i_codven.Text = Trim(LV_VEN.ListItems.item(loc_key).SubItems(1))
+   i_codven.Text = Trim(LV_VEN.ListItems.Item(loc_key).SubItems(1))
    PUB_CODVEN = Val(FORMGEN.i_codven.Text)
    SQ_OPER = 1
    pu_codcia = LK_CODCIA
@@ -19372,11 +19373,11 @@ End Sub
 Private Sub LV_ART_DblClick()
 If LK_FLAG_ALTERNO = "A" And LK_FLAG_ORIGINAL <> "A" Then
  loc_key = LV_ART.SelectedItem.index
- TEXTOVAR.Text = Trim(LV_ART.ListItems.item(loc_key).Text) & " "
+ TEXTOVAR.Text = Trim(LV_ART.ListItems.Item(loc_key).Text) & " "
  textovar_KeyPress 13
 Else
  loc_key = LV_ART.SelectedItem.index
- TEXTOVAR.Text = Trim(LV_ART.ListItems.item(loc_key).Text) & " "
+ TEXTOVAR.Text = Trim(LV_ART.ListItems.Item(loc_key).Text) & " "
  textovar_KeyPress 13
 End If
 
@@ -19385,18 +19386,18 @@ End Sub
 Private Sub LV_ART_GotFocus()
 If loc_key <> 0 Then
  Set LV_ART.SelectedItem = LV_ART.ListItems(loc_key)
- LV_ART.ListItems.item(loc_key).Selected = True
- LV_ART.ListItems.item(loc_key).EnsureVisible
+ LV_ART.ListItems.Item(loc_key).Selected = True
+ LV_ART.ListItems.Item(loc_key).EnsureVisible
 End If
 End Sub
 
-Private Sub LV_ART_ItemClick(ByVal item As MSComctlLib.ListItem)
+Private Sub LV_ART_ItemClick(ByVal Item As MSComctlLib.ListItem)
 If loc_key <> 0 Then
  loc_key = LV_ART.SelectedItem.index
  If LK_FLAG_ALTERNO = "A" And LK_FLAG_ORIGINAL <> "A" Then
-  TEXTOVAR.Text = Trim(LV_ART.ListItems.item(loc_key).Text) & " "
+  TEXTOVAR.Text = Trim(LV_ART.ListItems.Item(loc_key).Text) & " "
  Else
-  TEXTOVAR.Text = Trim(LV_ART.ListItems.item(loc_key).Text) & " "
+  TEXTOVAR.Text = Trim(LV_ART.ListItems.Item(loc_key).Text) & " "
  End If
  Call MuestraUnixCajas ' Agregado por JCR 08/01/2010
 End If
@@ -19427,7 +19428,7 @@ End Sub
 
 Private Sub LV_CCM_DblClick()
 loc_key = LV_CCM.SelectedItem.index
-i_codban.Text = Trim(LV_CCM.ListItems.item(loc_key).Text) & " "
+i_codban.Text = Trim(LV_CCM.ListItems.Item(loc_key).Text) & " "
 i_codban_KeyPress 13
 
 End Sub
@@ -19435,16 +19436,16 @@ End Sub
 Private Sub LV_CCM_GotFocus()
 If loc_key <> 0 Then
  Set LV_CCM.SelectedItem = LV_CCM.ListItems(loc_key)
- LV_CCM.ListItems.item(loc_key).Selected = True
- LV_CCM.ListItems.item(loc_key).EnsureVisible
+ LV_CCM.ListItems.Item(loc_key).Selected = True
+ LV_CCM.ListItems.Item(loc_key).EnsureVisible
 End If
 
 End Sub
 
-Private Sub LV_CCM_ItemClick(ByVal item As MSComctlLib.ListItem)
+Private Sub LV_CCM_ItemClick(ByVal Item As MSComctlLib.ListItem)
 If loc_key <> 0 Then
   loc_key = LV_CCM.SelectedItem.index
-  i_codban.Text = Trim(LV_CCM.ListItems.item(loc_key).Text) & " "
+  i_codban.Text = Trim(LV_CCM.ListItems.Item(loc_key).Text) & " "
 End If
 
 End Sub
@@ -19471,7 +19472,7 @@ End Sub
 
 Private Sub LV_CLI_DblClick()
 loc_key = LV_CLI.SelectedItem.index
-i_codcli.Text = Trim(LV_CLI.ListItems.item(loc_key).Text) & " "
+i_codcli.Text = Trim(LV_CLI.ListItems.Item(loc_key).Text) & " "
 i_codcli_KeyPress 13
 
 End Sub
@@ -19479,16 +19480,16 @@ End Sub
 Private Sub LV_CLI_GotFocus()
 If loc_key <> 0 Then
  Set LV_CLI.SelectedItem = LV_CLI.ListItems(loc_key)
- LV_CLI.ListItems.item(loc_key).Selected = True
- LV_CLI.ListItems.item(loc_key).EnsureVisible
+ LV_CLI.ListItems.Item(loc_key).Selected = True
+ LV_CLI.ListItems.Item(loc_key).EnsureVisible
 End If
 
 End Sub
 
-Private Sub LV_CLI_ItemClick(ByVal item As MSComctlLib.ListItem)
+Private Sub LV_CLI_ItemClick(ByVal Item As MSComctlLib.ListItem)
 If loc_key <> 0 Then
   loc_key = LV_CLI.SelectedItem.index
-  i_codcli.Text = Trim(LV_CLI.ListItems.item(loc_key).Text) & " "
+  i_codcli.Text = Trim(LV_CLI.ListItems.Item(loc_key).Text) & " "
 End If
 
 End Sub
@@ -19514,23 +19515,23 @@ End Sub
 
 Private Sub LV_VEN_DblClick()
 loc_key = LV_VEN.SelectedItem.index
-i_codven.Text = Trim(LV_VEN.ListItems.item(loc_key).Text) & " "
+i_codven.Text = Trim(LV_VEN.ListItems.Item(loc_key).Text) & " "
 i_codven_KeyPress 13
 End Sub
 
 Private Sub LV_VEN_GotFocus()
 If loc_key <> 0 Then
  Set LV_VEN.SelectedItem = LV_VEN.ListItems(loc_key)
- LV_VEN.ListItems.item(loc_key).Selected = True
- LV_VEN.ListItems.item(loc_key).EnsureVisible
+ LV_VEN.ListItems.Item(loc_key).Selected = True
+ LV_VEN.ListItems.Item(loc_key).EnsureVisible
 End If
 
 End Sub
 
-Private Sub LV_VEN_ItemClick(ByVal item As MSComctlLib.ListItem)
+Private Sub LV_VEN_ItemClick(ByVal Item As MSComctlLib.ListItem)
 If loc_key <> 0 Then
   loc_key = LV_VEN.SelectedItem.index
-  i_codven.Text = Trim(LV_VEN.ListItems.item(loc_key).Text) & " "
+  i_codven.Text = Trim(LV_VEN.ListItems.Item(loc_key).Text) & " "
 End If
 End Sub
 
@@ -20299,8 +20300,8 @@ If KeyCode <> 40 And KeyCode <> 38 And KeyCode <> 34 And KeyCode <> 33 And TEXTO
   loc_key = 1
   Set LV_ART.SelectedItem = LV_ART.ListItems(loc_key)
 '  LV_CLI.Visible = False
-  LV_ART.ListItems.item(loc_key).Selected = True
-  LV_ART.ListItems.item(loc_key).EnsureVisible
+  LV_ART.ListItems.Item(loc_key).Selected = True
+  LV_ART.ListItems.Item(loc_key).EnsureVisible
   GoTo fin
 End If
 
@@ -20332,17 +20333,17 @@ End If
 GoTo fin
 POSICION:
 '  KeyCode = 0
-  LV_ART.ListItems.item(loc_key).Selected = True
-  LV_ART.ListItems.item(loc_key).EnsureVisible
-  TEXTOVAR.Text = Trim(LV_ART.ListItems.item(loc_key).Text) & " "
+  LV_ART.ListItems.Item(loc_key).Selected = True
+  LV_ART.ListItems.Item(loc_key).EnsureVisible
+  TEXTOVAR.Text = Trim(LV_ART.ListItems.Item(loc_key).Text) & " "
   If LK_FLAG_ALTERNO = "A" And LK_FLAG_ORIGINAL <> "A" Then
     SQ_OPER = 3
     pu_codcia = LK_CODCIA
-    pu_alterno = Trim(LV_ART.ListItems.item(loc_key).Text)
+    pu_alterno = Trim(LV_ART.ListItems.Item(loc_key).Text)
     LEER_ART_LLAVE
     If Not art_llave_alt.EOF Then PUB_CODART = art_llave_alt("art_key")
   Else
-    PUB_CODART = Trim(LV_ART.ListItems.item(loc_key).ListSubItems(1).Text) & " "
+    PUB_CODART = Trim(LV_ART.ListItems.Item(loc_key).ListSubItems(1).Text) & " "
   End If
   MuestrPrecios
   MuestraUnixCajas ' Agregado por JCR 08/01/2010
@@ -20353,7 +20354,7 @@ POSICION:
   grid_unid.Visible = True
   SQ_OPER = 2
   pu_codcia = LK_CODCIA
-  PUB_CODART = Trim(LV_ART.ListItems.item(loc_key).SubItems(1))
+  PUB_CODART = Trim(LV_ART.ListItems.Item(loc_key).SubItems(1))
   LEER_PRE_LLAVE
   
   grid_unid.Height = 1200
@@ -20617,17 +20618,17 @@ Else
     If loc_key > LV_ART.ListItems.count Or loc_key = 0 Then
      Exit Sub
     End If
-    valor = UCase(LV_ART.ListItems.item(loc_key).Text)
+    valor = UCase(LV_ART.ListItems.Item(loc_key).Text)
     If Trim(UCase(TEXTOVAR.Text)) = Left(valor, Len(Trim(TEXTOVAR.Text))) And Len(Trim(TEXTOVAR.Text)) <> 0 Then
       If VAR_ACTIVAR <> 99 Then
-      TEXTOVAR.Text = Trim(LV_ART.ListItems.item(loc_key).SubItems(1))
+      TEXTOVAR.Text = Trim(LV_ART.ListItems.Item(loc_key).SubItems(1))
       Else
-      TEXTOVAR.Text = Trim(LV_ART.ListItems.item(loc_key))
+      TEXTOVAR.Text = Trim(LV_ART.ListItems.Item(loc_key))
       End If
       SQ_OPER = 1
       pu_codcia = LK_CODCIA
       If LK_FLAG_ALTERNO = "A" And LK_FLAG_ORIGINAL <> "A" Then
-       PUB_KEY = Val(LV_ART.ListItems.item(loc_key).SubItems(2))
+       PUB_KEY = Val(LV_ART.ListItems.Item(loc_key).SubItems(2))
       Else
        PUB_KEY = Val(FORMGEN.TEXTOVAR.Text)
       End If
@@ -20661,7 +20662,7 @@ End If
        If VAR_ACTIVAR <> 99 Then
           PUB_CODART = PUB_KEY
        Else
-          PUB_CODART = Val(LV_ART.ListItems.item(loc_key).SubItems(2))
+          PUB_CODART = Val(LV_ART.ListItems.Item(loc_key).SubItems(2))
        End If
     Else
        PUB_CODART = Val(FORMGEN.TEXTOVAR.Text)
@@ -20757,7 +20758,7 @@ grid_fac.CellForeColor = vbBlack
 If LK_FLAG_ALTERNO = "A" And LK_FLAG_ORIGINAL <> "A" Then
    If VAR_ACTIVAR <> 99 Then
    Else
-    grid_fac.TextMatrix(grid_fac.Row, 1) = LV_ART.ListItems.item(loc_key)
+    grid_fac.TextMatrix(grid_fac.Row, 1) = LV_ART.ListItems.Item(loc_key)
    End If
 Else
   grid_fac.TextMatrix(grid_fac.Row, 1) = art_LLAVE!ART_KEY
@@ -21015,9 +21016,9 @@ If LV_ART.Visible Then
    itmFound.Selected = True
    loc_key = itmFound.Tag
    If loc_key + 8 > LV_ART.ListItems.count Then
-      LV_ART.ListItems.item(LV_ART.ListItems.count).EnsureVisible
+      LV_ART.ListItems.Item(LV_ART.ListItems.count).EnsureVisible
    Else
-     LV_ART.ListItems.item(loc_key + 8).EnsureVisible
+     LV_ART.ListItems.Item(loc_key + 8).EnsureVisible
    End If
    DoEvents
   End If
@@ -21437,8 +21438,8 @@ If KeyCode = 13 Then Exit Sub
 If KeyCode <> 40 And KeyCode <> 38 And KeyCode <> 34 And KeyCode <> 33 And TRANS.Text = "" Then
   loc_key = 1
   Set LV_TRA.SelectedItem = LV_TRA.ListItems(loc_key)
-  LV_TRA.ListItems.item(loc_key).Selected = True
-  LV_TRA.ListItems.item(loc_key).EnsureVisible
+  LV_TRA.ListItems.Item(loc_key).Selected = True
+  LV_TRA.ListItems.Item(loc_key).EnsureVisible
   GoTo fin
 End If
 
@@ -21465,9 +21466,9 @@ End If
 GoTo fin
 POSICION:
 '  KeyCode = 0
-  LV_TRA.ListItems.item(loc_key).Selected = True
-  LV_TRA.ListItems.item(loc_key).EnsureVisible
-  TRANS.Text = Trim(LV_TRA.ListItems.item(loc_key).Text) & " "
+  LV_TRA.ListItems.Item(loc_key).Selected = True
+  LV_TRA.ListItems.Item(loc_key).EnsureVisible
+  TRANS.Text = Trim(LV_TRA.ListItems.Item(loc_key).Text) & " "
   DoEvents
   TRANS.SelStart = Len(TRANS.Text)
   DoEvents
@@ -21510,7 +21511,7 @@ End If
 If IsNumeric(FORMGEN.TRANS.Text) Then
   pu_subtra = Trim(FORMGEN.TRANS.Text)
 Else
-  pu_subtra = LV_TRA.ListItems.item(loc_key).SubItems(1)
+  pu_subtra = LV_TRA.ListItems.Item(loc_key).SubItems(1)
 End If
 LV_TRA.Visible = False
 FORMGEN.TRANS.Text = pu_subtra
@@ -22019,9 +22020,9 @@ If LV_TRA.Visible Then
    itmFound.Selected = True
    loc_key = itmFound.Tag
    If loc_key + 8 > LV_TRA.ListItems.count Then
-      LV_TRA.ListItems.item(LV_TRA.ListItems.count).EnsureVisible
+      LV_TRA.ListItems.Item(LV_TRA.ListItems.count).EnsureVisible
    Else
-     LV_TRA.ListItems.item(loc_key + 8).EnsureVisible
+     LV_TRA.ListItems.Item(loc_key + 8).EnsureVisible
    End If
    DoEvents
   End If
@@ -25056,8 +25057,8 @@ End If
 If KeyCode <> 40 And KeyCode <> 38 And KeyCode <> 34 And KeyCode <> 33 And txtCodVen.Text = "" Then
   loc_key = 1
   Set LV_VEN.SelectedItem = LV_VEN.ListItems(loc_key)
-  LV_VEN.ListItems.item(loc_key).Selected = True
-  LV_VEN.ListItems.item(loc_key).EnsureVisible
+  LV_VEN.ListItems.Item(loc_key).Selected = True
+  LV_VEN.ListItems.Item(loc_key).EnsureVisible
   GoTo fin
 End If
 
@@ -25084,9 +25085,9 @@ End If
 GoTo fin
 POSICION:
 '  KeyCode = 0
-  LV_VEN.ListItems.item(loc_key).Selected = True
-  LV_VEN.ListItems.item(loc_key).EnsureVisible
-  txtCodVen.Text = Trim(LV_VEN.ListItems.item(loc_key).Text) & " "
+  LV_VEN.ListItems.Item(loc_key).Selected = True
+  LV_VEN.ListItems.Item(loc_key).EnsureVisible
+  txtCodVen.Text = Trim(LV_VEN.ListItems.Item(loc_key).Text) & " "
   DoEvents
   txtCodVen.SelStart = Len(i_codven.Text)
   DoEvents
@@ -25129,7 +25130,7 @@ If PUB_CODVEN <> 0 And IsNumeric(txtCodVen.Text) = True Then
    End If
 Else
 On Error GoTo sigue
-   If loc_key > 0 Then valor = UCase(LV_VEN.ListItems.item(loc_key).Text)
+   If loc_key > 0 Then valor = UCase(LV_VEN.ListItems.Item(loc_key).Text)
    If Trim(UCase(txtCodVen.Text)) = Left(valor, Len(Trim(txtCodVen.Text))) Then
    Else
       Exit Sub
@@ -25137,7 +25138,7 @@ On Error GoTo sigue
    
    If loc_key = 0 Then Exit Sub
    
-   txtCodVen.Text = Trim(LV_VEN.ListItems.item(loc_key).SubItems(1))
+   txtCodVen.Text = Trim(LV_VEN.ListItems.Item(loc_key).SubItems(1))
    PUB_CODVEN = Val(FORMGEN.txtCodVen.Text)
    SQ_OPER = 1
    pu_codcia = LK_CODCIA
@@ -25194,9 +25195,9 @@ If LV_VEN.Visible Then
    itmFound.Selected = True
    loc_key = itmFound.Tag
    If loc_key + 8 > LV_VEN.ListItems.count Then
-      LV_VEN.ListItems.item(LV_VEN.ListItems.count).EnsureVisible
+      LV_VEN.ListItems.Item(LV_VEN.ListItems.count).EnsureVisible
    Else
-     LV_VEN.ListItems.item(loc_key + 8).EnsureVisible
+     LV_VEN.ListItems.Item(loc_key + 8).EnsureVisible
    End If
    DoEvents
   End If
@@ -25239,7 +25240,7 @@ End Sub
 
 Private Sub txtDato_KeyDown(KeyCode As Integer, Shift As Integer)
     If KeyCode = vbKeyF9 Then
-        option1.item(0).SetFocus
+        option1.Item(0).SetFocus
     End If
 End Sub
 
@@ -25373,7 +25374,7 @@ End Sub
 
 Private Sub grdarticulos_KeyDown(KeyCode As Integer, Shift As Integer)
     If KeyCode = vbKeyF9 Then
-        option1.item(0).SetFocus
+        option1.Item(0).SetFocus
     ElseIf KeyCode = vbKeyF10 Then
         txtdato.SetFocus
     End If
@@ -25585,8 +25586,8 @@ End If
 If KeyCode <> 40 And KeyCode <> 38 And KeyCode <> 34 And KeyCode <> 33 And i_codcli.Text = "" Then
   loc_key = 1
   Set LV_CHO.SelectedItem = LV_CHO.ListItems(loc_key)
-  LV_CHO.ListItems.item(loc_key).Selected = True
-  LV_CHO.ListItems.item(loc_key).EnsureVisible
+  LV_CHO.ListItems.Item(loc_key).Selected = True
+  LV_CHO.ListItems.Item(loc_key).EnsureVisible
   GoTo fin
 End If
 
@@ -25613,9 +25614,9 @@ End If
 GoTo fin
 POSICION:
 '  KeyCode = 0
-  LV_CHO.ListItems.item(loc_key).Selected = True
-  LV_CHO.ListItems.item(loc_key).EnsureVisible
-  i_codcho.Text = Trim(LV_CHO.ListItems.item(loc_key).Text) & " "
+  LV_CHO.ListItems.Item(loc_key).Selected = True
+  LV_CHO.ListItems.Item(loc_key).EnsureVisible
+  i_codcho.Text = Trim(LV_CHO.ListItems.Item(loc_key).Text) & " "
   DoEvents
   i_codcho.SelStart = Len(i_codcho.Text)
   DoEvents
@@ -25659,7 +25660,7 @@ If PUB_CODCHOFER <> 0 And IsNumeric(i_codcho.Text) = True Then
    End If
 Else
 On Error GoTo sigue
-   If loc_key > 0 Then valor = UCase(LV_CHO.ListItems.item(loc_key).Text)
+   If loc_key > 0 Then valor = UCase(LV_CHO.ListItems.Item(loc_key).Text)
    If Trim(UCase(i_codcho.Text)) = Left(valor, Len(Trim(i_codcho.Text))) Then
    Else
       Exit Sub
@@ -25667,7 +25668,7 @@ On Error GoTo sigue
    
    If loc_key = 0 Then Exit Sub
    
-   i_codcho.Text = Trim(LV_CHO.ListItems.item(loc_key).SubItems(1))
+   i_codcho.Text = Trim(LV_CHO.ListItems.Item(loc_key).SubItems(1))
    PUB_CODCHOFER = Val(FORMGEN.i_codcho.Text)
    SQ_OPER = 1
    pu_codcia = LK_CODCIA
@@ -25724,9 +25725,9 @@ Dim itmFound As Object    ' Variable FoundItem.
        itmFound.Selected = True
        loc_key = itmFound.Tag
        If loc_key + 8 > LV_CHO.ListItems.count Then
-          LV_CHO.ListItems.item(LV_CHO.ListItems.count).EnsureVisible
+          LV_CHO.ListItems.Item(LV_CHO.ListItems.count).EnsureVisible
        Else
-         LV_CHO.ListItems.item(loc_key + 8).EnsureVisible
+         LV_CHO.ListItems.Item(loc_key + 8).EnsureVisible
        End If
        DoEvents
       End If
@@ -25828,9 +25829,9 @@ Dim FlagSolicitud As Integer
         LEER_CLI_LLAVE
         If Not cli_llave.EOF Then
             lblCli.Caption = cli_llave("CLI_NOMBRE")
-            txtRuc.Text = cli_llave("CLI_RUC_ESPOSO")
+            txtruc.Text = cli_llave("CLI_RUC_ESPOSO")
         End If
-        txtRuc.Text = ped_llave("Ped_RUCCLIE")
+        txtruc.Text = ped_llave("Ped_RUCCLIE")
         txtNroDoc.Text = Nulo_Valor0(ped_llave("PED_NUMDOC"))
         
         PUB_IMPTO = ped_llave("Ped_IGV")
@@ -26150,7 +26151,7 @@ Private Sub cmdcancelOC_Click()
     lblCli.Caption = ""
     txtNroDoc.Text = ""
     txtFecha.Text = "__/__/____"
-    txtRuc.Text = ""
+    txtruc.Text = ""
     stbSubtotales.Panels(1).Text = "0.000"
     stbSubtotales.Panels(3).Text = "0.000"
     stbSubtotales.Panels(2).Text = "0.000"
@@ -26235,13 +26236,13 @@ Private Sub i_condiP_KeyPress(KeyAscii As Integer)
     If KeyAscii = 13 And i_condiP.Text <> "" Then lvw.SetFocus
 End Sub
 
-Private Sub lvw_ItemCheck(ByVal item As MSComctlLib.ListItem)
+Private Sub lvw_ItemCheck(ByVal Item As MSComctlLib.ListItem)
 Dim iItem As Integer
 Dim iItemAct As Integer
 Dim iCountChek As Integer
-    iItemAct = item.index
+    iItemAct = Item.index
     For iItem = 1 To lvw.ListItems.count
-        If item.Checked = True Then
+        If Item.Checked = True Then
             iCountChek = iCountChek + 1
             If Trim(i_fbgP.Text) = "F" Then
                 If Nulo_Valor0(par_llave!par_fac_lines) = iCountChek Then
@@ -26257,13 +26258,13 @@ Dim iCountChek As Integer
     Exit Sub
 Fuera:
     MsgBox "Se ha alcanzado el tope de lineas en el Documento"
-    item.Checked = False
+    Item.Checked = False
 End Sub
 
 'MIC====================================================
 'agregue para buscador de articulos segun estructura
     
-Private Sub cmdconsultar_Click()
+Private Sub cmdConsultar_Click()
 Dim sCodigo As String
 Dim SQL As String
 Dim sMoneda As String
@@ -26414,7 +26415,7 @@ Private Sub art_Linea_KeyPress(KeyAscii As Integer)
     End If
 End Sub
 Private Sub art_Linea_LostFocus()
-    cmdconsultar_Click
+    cmdConsultar_Click
 End Sub
 Private Sub grdarticulos_KeyUp(KeyCode As Integer, Shift As Integer)
     If KeyCode = 27 Then
@@ -26540,7 +26541,7 @@ Dim posi As Integer
 cad = "select P.pre_pre1,P.pre_costo,P.pre_unidad,(A.arm_stock/P.pre_equiv) as Stock,(P.pre_costo) as costo " & _
     "from precios P inner join Articulo A on P.pre_codcia=A.arm_codcia and P.pre_codart=A.arm_codart " & _
     "where P.pre_codcia='" & LK_CODCIA & "' and " & _
-    "P.pre_codart=" & Val(LV_ART.ListItems.item(loc_key).ListSubItems(1).Text) & " " & _
+    "P.pre_codart=" & Val(LV_ART.ListItems.Item(loc_key).ListSubItems(1).Text) & " " & _
     "and P.pre_secuencia=1"
 
 Set rsdato = New ADODB.Recordset

@@ -219,86 +219,58 @@ Begin VB.Form frmCLI
       TabCaption(1)   =   "Direccion Almacen"
       TabPicture(1)   =   "client.frx":045E
       Tab(1).ControlEnabled=   0   'False
-      Tab(1).Control(0)=   "cboProvincia"
-      Tab(1).Control(1)=   "cmdDelete"
-      Tab(1).Control(2)=   "cmdCancel"
-      Tab(1).Control(3)=   "cmdDireccion"
-      Tab(1).Control(4)=   "txtdepartamento1"
-      Tab(1).Control(5)=   "cboDireccion"
-      Tab(1).Control(6)=   "txtNumDirTrabajo"
-      Tab(1).Control(7)=   "TxtLugarTrab"
-      Tab(1).Control(8)=   "txtpropiedad2"
-      Tab(1).Control(9)=   "TxtSubZonaTrabajo"
-      Tab(1).Control(10)=   "TxtZonaTrabajo"
-      Tab(1).Control(11)=   "txtDirTrabajo"
-      Tab(1).Control(12)=   "lblnom(18)"
-      Tab(1).Control(13)=   "lblnom(38)"
-      Tab(1).Control(14)=   "label(36)"
-      Tab(1).Control(15)=   "lblnom(15)"
-      Tab(1).Control(16)=   "lblnom(32)"
-      Tab(1).Control(17)=   "lblnom(21)"
-      Tab(1).Control(18)=   "lblnom(17)"
-      Tab(1).Control(19)=   "lblnom(14)"
+      Tab(1).Control(0)=   "lblnom(14)"
+      Tab(1).Control(1)=   "lblnom(17)"
+      Tab(1).Control(2)=   "lblnom(21)"
+      Tab(1).Control(3)=   "lblnom(32)"
+      Tab(1).Control(4)=   "lblnom(15)"
+      Tab(1).Control(5)=   "label(36)"
+      Tab(1).Control(6)=   "lblnom(38)"
+      Tab(1).Control(7)=   "lblnom(18)"
+      Tab(1).Control(8)=   "txtDirTrabajo"
+      Tab(1).Control(9)=   "TxtZonaTrabajo"
+      Tab(1).Control(10)=   "TxtSubZonaTrabajo"
+      Tab(1).Control(11)=   "txtpropiedad2"
+      Tab(1).Control(12)=   "TxtLugarTrab"
+      Tab(1).Control(13)=   "txtNumDirTrabajo"
+      Tab(1).Control(14)=   "cboDireccion"
+      Tab(1).Control(15)=   "txtdepartamento1"
+      Tab(1).Control(16)=   "cmdDireccion"
+      Tab(1).Control(17)=   "cmdCancel"
+      Tab(1).Control(18)=   "cmdDelete"
+      Tab(1).Control(19)=   "cboProvincia"
       Tab(1).ControlCount=   20
       TabCaption(2)   =   "Otras Opciones"
       TabPicture(2)   =   "client.frx":047A
       Tab(2).ControlEnabled=   0   'False
-      Tab(2).Control(0)=   "lblnom(28)"
-      Tab(2).Control(0).Enabled=   0   'False
-      Tab(2).Control(1)=   "lblnom(29)"
-      Tab(2).Control(1).Enabled=   0   'False
-      Tab(2).Control(2)=   "lblnom(33)"
-      Tab(2).Control(2).Enabled=   0   'False
-      Tab(2).Control(3)=   "lblnom(27)"
-      Tab(2).Control(3).Enabled=   0   'False
-      Tab(2).Control(4)=   "lblnom(35)"
-      Tab(2).Control(4).Enabled=   0   'False
-      Tab(2).Control(5)=   "g_fechafac"
-      Tab(2).Control(5).Enabled=   0   'False
-      Tab(2).Control(6)=   "lblnom(23)"
-      Tab(2).Control(6).Enabled=   0   'False
-      Tab(2).Control(7)=   "lblnom(24)"
-      Tab(2).Control(7).Enabled=   0   'False
-      Tab(2).Control(8)=   "lblnom(34)"
-      Tab(2).Control(8).Enabled=   0   'False
-      Tab(2).Control(9)=   "lblnom(25)"
-      Tab(2).Control(9).Enabled=   0   'False
-      Tab(2).Control(10)=   "g_diasfac"
-      Tab(2).Control(10).Enabled=   0   'False
-      Tab(2).Control(11)=   "LblDatos(20)"
-      Tab(2).Control(11).Enabled=   0   'False
-      Tab(2).Control(12)=   "Label9"
-      Tab(2).Control(12).Enabled=   0   'False
-      Tab(2).Control(13)=   "lblnom(19)"
-      Tab(2).Control(13).Enabled=   0   'False
-      Tab(2).Control(14)=   "otrocontrato"
-      Tab(2).Control(14).Enabled=   0   'False
-      Tab(2).Control(15)=   "letraotorgado"
-      Tab(2).Control(15).Enabled=   0   'False
-      Tab(2).Control(16)=   "txtNucleo"
-      Tab(2).Control(16).Enabled=   0   'False
-      Tab(2).Control(17)=   "txtDTX"
-      Tab(2).Control(17).Enabled=   0   'False
-      Tab(2).Control(18)=   "txtpordes"
-      Tab(2).Control(18).Enabled=   0   'False
-      Tab(2).Control(19)=   "t_diascred"
-      Tab(2).Control(19).Enabled=   0   'False
-      Tab(2).Control(20)=   "t_diasfac"
-      Tab(2).Control(20).Enabled=   0   'False
-      Tab(2).Control(21)=   "t_fechafac"
-      Tab(2).Control(21).Enabled=   0   'False
-      Tab(2).Control(22)=   "txtprog"
-      Tab(2).Control(22).Enabled=   0   'False
-      Tab(2).Control(23)=   "txtautovaluo"
-      Tab(2).Control(23).Enabled=   0   'False
-      Tab(2).Control(24)=   "copia"
-      Tab(2).Control(24).Enabled=   0   'False
-      Tab(2).Control(25)=   "ListBloqueos"
-      Tab(2).Control(25).Enabled=   0   'False
-      Tab(2).Control(26)=   "lisdescto"
-      Tab(2).Control(26).Enabled=   0   'False
-      Tab(2).Control(27)=   "txtpropiedad1"
-      Tab(2).Control(27).Enabled=   0   'False
+      Tab(2).Control(0)=   "txtpropiedad1"
+      Tab(2).Control(1)=   "lisdescto"
+      Tab(2).Control(2)=   "ListBloqueos"
+      Tab(2).Control(3)=   "copia"
+      Tab(2).Control(4)=   "txtautovaluo"
+      Tab(2).Control(5)=   "txtprog"
+      Tab(2).Control(6)=   "t_fechafac"
+      Tab(2).Control(7)=   "t_diasfac"
+      Tab(2).Control(8)=   "t_diascred"
+      Tab(2).Control(9)=   "txtpordes"
+      Tab(2).Control(10)=   "txtDTX"
+      Tab(2).Control(11)=   "txtNucleo"
+      Tab(2).Control(12)=   "letraotorgado"
+      Tab(2).Control(13)=   "otrocontrato"
+      Tab(2).Control(14)=   "lblnom(19)"
+      Tab(2).Control(15)=   "Label9"
+      Tab(2).Control(16)=   "LblDatos(20)"
+      Tab(2).Control(17)=   "g_diasfac"
+      Tab(2).Control(18)=   "lblnom(25)"
+      Tab(2).Control(19)=   "lblnom(34)"
+      Tab(2).Control(20)=   "lblnom(24)"
+      Tab(2).Control(21)=   "lblnom(23)"
+      Tab(2).Control(22)=   "g_fechafac"
+      Tab(2).Control(23)=   "lblnom(35)"
+      Tab(2).Control(24)=   "lblnom(27)"
+      Tab(2).Control(25)=   "lblnom(33)"
+      Tab(2).Control(26)=   "lblnom(29)"
+      Tab(2).Control(27)=   "lblnom(28)"
       Tab(2).ControlCount=   28
       Begin VB.TextBox txtregpublico1 
          DataField       =   "ART_MARGEN"
@@ -2896,13 +2868,13 @@ Dim CONTA As Integer
     cont.Clear
     If SQ_OPER <> 2 Then
         Do Until tab_menor.EOF
-            cont.AddItem tab_menor!tab_NOMLARGO & String(60, " ") & tab_menor!TAB_NOMCORTO  'GTS
+            cont.AddItem tab_menor!tab_NOMLARGO & String(60, " ") & tab_menor!tab_nomcorto  'GTS
             cont.ItemData(cont.NewIndex) = tab_menor!TAB_NUMTAB
             tab_menor.MoveNext
         Loop
     Else
         Do Until tab_mayor.EOF
-            cont.AddItem tab_mayor!tab_NOMLARGO & String(60, " ") & tab_mayor!TAB_NOMCORTO 'GTS
+            cont.AddItem tab_mayor!tab_NOMLARGO & String(60, " ") & tab_mayor!tab_nomcorto 'GTS
             cont.ItemData(cont.NewIndex) = tab_mayor!TAB_NUMTAB
             tab_mayor.MoveNext
         Loop
@@ -2968,17 +2940,17 @@ Public Sub LLENA_BLOQ()
    SQ_OPER = 2
    LEER_TAB_LLAVE
    Do Until tab_mayor.EOF
-        If cliloc_llave!CLI_TIPO_BLOQ1 = Left(tab_mayor!TAB_NOMCORTO, 1) Then
-            ListBloqueos.AddItem tab_mayor!TAB_NOMCORTO
+        If cliloc_llave!CLI_TIPO_BLOQ1 = Left(tab_mayor!tab_nomcorto, 1) Then
+            ListBloqueos.AddItem tab_mayor!tab_nomcorto
         End If
-        If cliloc_llave!CLI_TIPO_BLOQ2 = Left(tab_mayor!TAB_NOMCORTO, 1) Then
-            ListBloqueos.AddItem tab_mayor!TAB_NOMCORTO
+        If cliloc_llave!CLI_TIPO_BLOQ2 = Left(tab_mayor!tab_nomcorto, 1) Then
+            ListBloqueos.AddItem tab_mayor!tab_nomcorto
         End If
-        If cliloc_llave!CLI_TIPO_BLOQ3 = Left(tab_mayor!TAB_NOMCORTO, 1) Then
-            ListBloqueos.AddItem tab_mayor!TAB_NOMCORTO
+        If cliloc_llave!CLI_TIPO_BLOQ3 = Left(tab_mayor!tab_nomcorto, 1) Then
+            ListBloqueos.AddItem tab_mayor!tab_nomcorto
         End If
-        If cliloc_llave!CLI_TIPO_BLOQ4 = Left(tab_mayor!TAB_NOMCORTO, 1) Then
-            ListBloqueos.AddItem tab_mayor!TAB_NOMCORTO
+        If cliloc_llave!CLI_TIPO_BLOQ4 = Left(tab_mayor!tab_nomcorto, 1) Then
+            ListBloqueos.AddItem tab_mayor!tab_nomcorto
         End If
         tab_mayor.MoveNext
    Loop
@@ -5070,7 +5042,7 @@ End If
   tab_llave!TAB_TIPREG = LOC_TIPREG
   tab_llave!TAB_NUMTAB = Val(lblnom(index).Tag)
   tab_llave!tab_NOMLARGO = Left(wnombre, 40)
-  tab_llave!TAB_NOMCORTO = Left(wnombre, 10)
+  tab_llave!tab_nomcorto = Left(wnombre, 10)
   tab_llave.Update
   lblnom(index).Caption = Left(wnombre, 40)
 Screen.MousePointer = 0
@@ -5214,8 +5186,8 @@ Screen.MousePointer = 11
     Txtnumdir.Text = Trim(Nulo_Valor0(cliloc_llave!CLI_CASA_NUM))
     
     ASIGNA_INT txtdepartamento, Trim(cliloc_llave!CLI_DEPA1)
-    ASIGNA_INT TxtSubZona, Trim(cliloc_llave!CLI_CASA_SUBZONA)
-    ASIGNA_INT TxtZona, Trim(cliloc_llave!CLI_CASA_ZONA)
+    ASIGNA_INT TxtSubZona, Trim(Nulo_Valor0(cliloc_llave!CLI_CASA_SUBZONA))
+    ASIGNA_INT TxtZona, Trim(Nulo_Valor0(cliloc_llave!CLI_CASA_ZONA))
     
     ASIGNA_INT txtZonaNew, Nulo_Valor0(cliloc_llave!CLI_ZONA_NEW)
     'QUITADO
@@ -5982,7 +5954,7 @@ grabar:
     cliloc_llave!CLI_NOMBRE = frmCLI.txtnombre.Text
     cliloc_llave!CLI_CASA_DIREC = txtdireccion.Text
     cliloc_llave!CLI_CASA_NUM = Val(Txtnumdir.Text)
-    cliloc_llave!CLI_DEPA1 = Trim(Right(txtdepartamento.Text, 16))
+    cliloc_llave!CLI_DEPA1 = Val(Right(txtdepartamento.Text, 8))
     cliloc_llave!CLI_CASA_ZONA = Trim(Right(TxtZona.Text, 16))
     cliloc_llave!CLI_CASA_SUBZONA = Trim(Right(TxtSubZona.Text, 16))
     cliloc_llave!CLI_LUGAR_CASA = Val(Right(TxtLugarCasa.Text, 8))
@@ -7254,7 +7226,7 @@ Do Until cliplac_llave.EOF
   LEER_ART_LLAVE
   If Not art_LLAVE.EOF Then frmCLI.grid_des.TextMatrix(frmCLI.grid_des.rows - 1, 1) = art_LLAVE!ART_NOMBRE
   frmCLI.grid_des.TextMatrix(frmCLI.grid_des.rows - 1, 2) = Format(cliplac_llave!tab_NOMLARGO, "0.00")
-  frmCLI.grid_des.TextMatrix(frmCLI.grid_des.rows - 1, 3) = Format(cliplac_llave!TAB_NOMCORTO, "0.00")
+  frmCLI.grid_des.TextMatrix(frmCLI.grid_des.rows - 1, 3) = Format(cliplac_llave!tab_nomcorto, "0.00")
   cliplac_llave.MoveNext
 Loop
 grid_des.SetFocus
